@@ -16,7 +16,7 @@ export class JeuxvideoListComponent implements OnInit {
   private tmpSortie: string;
   private tmpGenres: string;
   private tmpTheme: string;
-  private tmpPrix: number;
+  private tmpPrix: number = 0.00;
   private tmpDescription: string;
   private tmpUrlImage: string;
   private jvs: Jeuxvideo[] = [];
@@ -31,15 +31,15 @@ export class JeuxvideoListComponent implements OnInit {
       .getAllJvs()
       .subscribe(jvs => {
         this.jvs = Jeuxvideo.fromJSONs(jvs);
-        this.emitJvs();
+        this.emitJeuxvideos();
       });
   }
 
-  public emitJvs(){
+  public emitJeuxvideos(){
     this.jvsChange.next(this.jvs);
   }
 
-  public createJv(){
+  public createJeuxvideo(){
     const tmpJv = new Jeuxvideo();
     tmpJv.nom = this.tmpNom;
     tmpJv.editeur = this.tmpEditeur;
@@ -54,8 +54,20 @@ export class JeuxvideoListComponent implements OnInit {
     this.jvs.push(tmpJv);
     this.jvService.createJv(tmpJv).subscribe(jv => tmpJv.id = Jeuxvideo.fromJSON(jv).id);
     this.effacerChamp();
-    this.emitJvs();
+    this.emitJeuxvideos();
   }
+
+  public updateJeuxvideo(jv: Jeuxvideo) {
+    this.jvService.updateJv(jv).subscribe();
+}
+
+  public deleteJeuxvideo(index:number){
+    const DELETE_JV = () =>this.jvs.splice(index,1);
+    const DISPLAY_ERROR = (error) => console.error(error);
+    //this.jvs.splice(index,1);
+    this.jvService.deleteJv(this.jvs[index].id).subscribe(DELETE_JV,DISPLAY_ERROR);
+  }
+
 
 
   public effacerChamp() {
@@ -66,7 +78,7 @@ export class JeuxvideoListComponent implements OnInit {
     this.tmpSortie = '';
     this.tmpGenres = '';
     this.tmpTheme = '';
-    this.tmpPrix = 0;
+    this.tmpPrix = 0.00;
     this.tmpDescription = '';
     this. tmpUrlImage = '';
   }

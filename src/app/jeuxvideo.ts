@@ -1,5 +1,5 @@
 export class Jeuxvideo {
-  private _id : string;
+  private _id : number;
   private _nom : string;
   private _editeur : string;
   private _types: string;
@@ -28,11 +28,11 @@ export class Jeuxvideo {
 
 
 
-  get id(): string {
+  get id(): number {
     return this._id;
   }
 
-  set id(value: string) {
+  set id(value: number) {
     this._id = value;
   }
 
@@ -120,7 +120,7 @@ export class Jeuxvideo {
     return this._id+" "+this._nom+" "+this._prix+" "+this._description;
   }
 
-  public static fromJSON(rawJv:any) : Jeuxvideo{
+  public static fromJSON(rawJv:any): Jeuxvideo{
     const tmpJv = new Jeuxvideo();
     tmpJv.id = rawJv["Id"];
     tmpJv.nom = rawJv["Nom"];
