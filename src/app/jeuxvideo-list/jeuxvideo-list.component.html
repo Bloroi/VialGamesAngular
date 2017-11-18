@@ -1,0 +1,36 @@
+<h1>Créer un Jeux vidéo</h1>
+
+<form #formulaire="ngForm" (submit)="createJv()">
+  Nom : <input type="text" name="nom" [(ngModel)]="tmpNom"> <br/>
+  Editeur : <input type="text" name="editeur" [(ngModel)]="tmpEditeur"><br/>
+  Types : <input type="text" name="types" [(ngModel)]="tmpTypes"><br/>
+  Developpeur : <input type="text" name="developpeur" [(ngModel)]="tmpDeveloppeur"><br/>
+  Sortie : <input type="text" name="sortie" [(ngModel)]="tmpSortie"><br/>
+  Genres : <input type="text" name="genres" [(ngModel)]="tmpGenres"><br/>
+  Theme : <input type="text" name="theme" [(ngModel)]="tmpTheme"><br/>
+  Prix : <input type="number" name="prix" [(ngModel)]="tmpPrix"><br/>
+  Description : <input [ngStyle]="{height: '100px' , width:'350px'}" type="text" name="description" [(ngModel)]="tmpDescription"><br/>
+  Url de l'image : <input [ngStyle]="{width:'350px' }" type="text" name="urlImage" [(ngModel)]="tmpUrlImage"><br/><br/>
+
+  <input type="submit" value="Créer le jeuxvideo !" [disabled]="!formulaire.form.valid"/>
+
+</form>
+
+<h1>Affichage des jeux vidéos</h1>
+
+<ul>
+  <li *ngFor="let jv of jvs">
+    <img src = "{{jv.urlImage}}"  height="200" /> <br/>
+    Id : {{jv.id}} <br/>
+    Nom : {{jv.nom}} <br/>
+    Editeur : {{jv.editeur}} <br/>
+    Types : {{jv.types}} <br/>
+    Developpeur : {{jv.developpeur}} <br/>
+    Sortie : {{jv.sortie}} <br/>
+    Genres : {{jv.genres}} <br/>
+    Themes : {{jv.theme}} <br/>
+    Prix : {{jv.prix}} <br/>
+    Description : {{jv.description}} <br/>
+  </li>
+
+</ul>
