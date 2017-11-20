@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MagasinierListComponent } from './magasinier-list.component';
+import { ModifierMagasinierComponent } from './modifier-magasinier.component';
 
-describe('MagasinierListComponent', () => {
-  let component: MagasinierListComponent;
-  let fixture: ComponentFixture<MagasinierListComponent>;
+describe('ModifierMagasinierComponent', () => {
+  let component: ModifierMagasinierComponent;
+  let fixture: ComponentFixture<ModifierMagasinierComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MagasinierListComponent ]
+      declarations: [ ModifierMagasinierComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MagasinierListComponent);
+    fixture = TestBed.createComponent(ModifierMagasinierComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -12,7 +12,6 @@
   Description : <input [ngStyle]="{height: '100px' , width:'350px'}" type="text" name="description" [(ngModel)]="tmpDescription" required><br/>
   Url de l'image : <input [ngStyle]="{width:'350px' }" type="text" name="urlImage" [(ngModel)]="tmpUrlImage" required><br/><br/>
 
-  <input type="submit" value="Créer le jeuxvideo !" [disabled]="!formulaire.form.valid"> <!-- le valid ne fontionne pas ,chercher !-->
-
+  <input type="submit" value="Créer le jeuxvideo !" [disabled]="!formulaire.form.valid">
 
 </form>

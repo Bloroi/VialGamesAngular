@@ -4,9 +4,13 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {Jeuxvideo} from './jeuxvideo';
 import {HttpParams} from '@angular/common/http';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class JeuxvideoManagerService {
+
+  private listJv = new BehaviorSubject<Jeuxvideo[]>([]);
+  currentList = this.listJv.asObservable();
 
   constructor(public http:Http) { }
 
@@ -27,4 +31,9 @@ export class JeuxvideoManagerService {
   public updateJv(jv : Jeuxvideo) : Observable<any>{
     return this.http.put("http://localhost:56469/api/jeuxvideo",jv.getCleanDataForSending());
   }
+
+  changeListeJv(listeJv: Jeuxvideo[]){
+    this.listJv.next(listeJv);
+  }
+
 }

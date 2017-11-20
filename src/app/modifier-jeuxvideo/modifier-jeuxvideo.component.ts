@@ -1,7 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Jeuxvideo} from '../jeuxvideo';
 import {JeuxvideoManagerService} from '../jeuxvideo-manager.service';
-import {DataJvServiceService} from '../data-jv-service.service';
 
 @Component({
   selector: 'app-modifier-jeuxvideo',
@@ -14,11 +13,10 @@ export class ModifierJeuxvideoComponent implements OnInit {
 
   @Output() private jvsChange: EventEmitter<Jeuxvideo[]> = new EventEmitter();
 
-  constructor(public jvService: JeuxvideoManagerService, private data: DataJvServiceService) { }
+  constructor(public jvService: JeuxvideoManagerService) { }
 
   ngOnInit() {
-    this.data.currentList.subscribe(jvs => this.jvs = jvs);
-    //this.refreshList();
+    this.jvService.currentList.subscribe(jvs => this.jvs = jvs);
   }
 
 
@@ -31,7 +29,7 @@ export class ModifierJeuxvideoComponent implements OnInit {
     const DISPLAY_ERROR = (error) => console.error(error);
     //this.jvs.splice(index,1);
     this.jvService.deleteJv(this.jvs[index].id).subscribe(DELETE_JV,DISPLAY_ERROR);
-    this.data.changeListeJv(this.jvs);
+    this.jvService.changeListeJv(this.jvs);
   }
 
 }

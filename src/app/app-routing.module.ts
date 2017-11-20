@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {JeuxvideoListComponent} from './jeuxvideo-list/jeuxvideo-list.component';
-import {MagasinierListComponent} from './magasinier-list/magasinier-list.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {ManagerJeuxvideoComponent} from './manager-jeuxvideo/manager-jeuxvideo.component';
+import {ManagerMagasinierComponent} from './manager-magasinier/manager-magasinier.component';
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
   {path: 'jvpage', component: ManagerJeuxvideoComponent},
-  {path: 'magpage', component: MagasinierListComponent},
+  {path: 'magpage', component: ManagerMagasinierComponent},
 ];
 
 @NgModule({

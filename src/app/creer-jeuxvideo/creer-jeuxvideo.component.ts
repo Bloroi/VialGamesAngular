@@ -1,7 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Jeuxvideo} from '../jeuxvideo';
 import {JeuxvideoManagerService} from '../jeuxvideo-manager.service';
-import {DataJvServiceService} from '../data-jv-service.service';
 
 @Component({
   selector: 'app-creer-jeuxvideo',
@@ -24,7 +23,7 @@ export class CreerJeuxvideoComponent implements OnInit {
 
   @Output() private jvsChange: EventEmitter<Jeuxvideo[]> = new EventEmitter();
 
-  constructor(public jvService: JeuxvideoManagerService, private data: DataJvServiceService) { }
+  constructor(public jvService: JeuxvideoManagerService) { }
 
   ngOnInit() {
     this.jvService
@@ -34,13 +33,13 @@ export class CreerJeuxvideoComponent implements OnInit {
         this.emitJeuxvideos();
       });
 
-    //this.data.currentList.subscribe(listjvs => this.jvs = listjvs);
+    //this.magService.currentList.subscribe(listjvs => this.jvs = listjvs);
 
   }
 
   public emitJeuxvideos(){
     this.jvsChange.next(this.jvs);
-    this.data.changeListeJv(this.jvs);
+    this.jvService.changeListeJv(this.jvs);
   }
 
   public createJeuxvideo(){

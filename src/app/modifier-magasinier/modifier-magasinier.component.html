@@ -1,0 +1,14 @@
+<h1>Modifier des magasiniers</h1>
+
+<ul>
+  <li *ngFor="let m of mags ; index as i;">
+    Id : {{m.id}}    <button (click)="deleteMagasinier(i)">X</button> <br/>
+
+    Nom : <input type="text" [(ngModel)]="m.username" (blur)="updateMagasinier(m)"> <br/>
+    Prénom: <input type="text" [(ngModel)]="m.password" (blur)="updateMagasinier(m)"> <br/>
+    Tel : <input type="text" [(ngModel)]="m.tel" (blur)="updateMagasinier(m)"> <br/>
+    Email : <input type="text" [(ngModel)]="m.email" (blur)="updateMagasinier(m)"> <br/>
+
+  </li>
+
+</ul>
