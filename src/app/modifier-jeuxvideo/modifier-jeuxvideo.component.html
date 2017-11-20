@@ -1,0 +1,19 @@
+<h1>Affichage des jeux vidéos</h1>
+
+<ul>
+  <li *ngFor="let jv of jvs ; index as i;">
+    Id : {{jv.id}}    <button (click)="deleteJeuxvideo(i)">X</button> <br/>
+    <img src = "{{jv.urlImage}}"  height="200" /> <br/>
+    Nom : <input type="text" [(ngModel)]="jv.nom"(blur)="updateJeuxvideo(jv)"> <br/>
+    Editeur : <input type="text" [(ngModel)]="jv.editeur"(blur)="updateJeuxvideo(jv)"> <br/>
+    Types : <input type="text" [(ngModel)]="jv.types"(blur)="updateJeuxvideo(jv)"> <br/>
+    Developpeur : <input type="text" [(ngModel)]="jv.developpeur"(blur)="updateJeuxvideo(jv)"> <br/>
+    Sortie : <input type="text" [(ngModel)]="jv.sortie"(blur)="updateJeuxvideo(jv)"> <br/>
+    Genres : <input type="text" [(ngModel)]="jv.genres"(blur)="updateJeuxvideo(jv)"> <br/>
+    Theme : <input type="text" [(ngModel)]="jv.theme"(blur)="updateJeuxvideo(jv)"> <br/>
+    Prix : <input type="text" [(ngModel)]="jv.prix"(blur)="updateJeuxvideo(jv)"> <br/>
+    Description : <input type="text" [(ngModel)]="jv.description"(blur)="updateJeuxvideo(jv)"> <br/>
+    Url de l'image : <input type="text" [(ngModel)]="jv.urlImage"(blur)="updateJeuxvideo(jv)">
+  </li>
+
+</ul>

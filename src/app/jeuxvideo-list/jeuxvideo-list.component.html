@@ -1,38 +1,17 @@
-<h1>Créer un Jeux vidéo</h1>
-
-<form #formulaire="ngForm" (submit)="createJeuxvideo()">
-  Nom : <input type="text" name="nom" [(ngModel)]="tmpNom"> <br/>
-  Editeur : <input type="text" name="editeur" [(ngModel)]="tmpEditeur"><br/>
-  Types : <input type="text" name="types" [(ngModel)]="tmpTypes"><br/>
-  Developpeur : <input type="text" name="developpeur" [(ngModel)]="tmpDeveloppeur"><br/>
-  Sortie : <input type="text" name="sortie" [(ngModel)]="tmpSortie"><br/>
-  Genres : <input type="text" name="genres" [(ngModel)]="tmpGenres"><br/>
-  Theme : <input type="text" name="theme" [(ngModel)]="tmpTheme"><br/>
-  Prix : <input type="number" name="prix" step="0.01" [(ngModel)]="tmpPrix"><br/>
-  Description : <input [ngStyle]="{height: '100px' , width:'350px'}" type="text" name="description" [(ngModel)]="tmpDescription" ><br/>
-  Url de l'image : <input [ngStyle]="{width:'350px' }" type="text" name="urlImage" [(ngModel)]="tmpUrlImage"><br/><br/>
-
-  <input type="submit" value="Créer le jeuxvideo !" [disabled]="!formulaire.form.valid"> <!-- le valid ne fontionne pas ,chercher !-->
-
-
-</form>
-
 <h1>Affichage des jeux vidéos</h1>
 
 <ul>
   <li *ngFor="let jv of jvs ; index as i;">
-    Id : {{jv.id}}    <button (click)="deleteJeuxvideo(i)">X</button> <br/>
     <img src = "{{jv.urlImage}}"  height="200" /> <br/>
-    Nom : <input type="text" [(ngModel)]="jv.nom"(blur)="updateJeuxvideo(jv)"> <br/>
-    Editeur : <input type="text" [(ngModel)]="jv.editeur"(blur)="updateJeuxvideo(jv)"> <br/>
-    Types : <input type="text" [(ngModel)]="jv.types"(blur)="updateJeuxvideo(jv)"> <br/>
-    Developpeur : <input type="text" [(ngModel)]="jv.developpeur"(blur)="updateJeuxvideo(jv)"> <br/>
-    Sortie : <input type="text" [(ngModel)]="jv.sortie"(blur)="updateJeuxvideo(jv)"> <br/>
-    Genres : <input type="text" [(ngModel)]="jv.genres"(blur)="updateJeuxvideo(jv)"> <br/>
-    Theme : <input type="text" [(ngModel)]="jv.theme"(blur)="updateJeuxvideo(jv)"> <br/>
-    Prix : <input type="text" [(ngModel)]="jv.prix"(blur)="updateJeuxvideo(jv)"> <br/>
-    Description : <input type="text" [(ngModel)]="jv.description"(blur)="updateJeuxvideo(jv)"> <br/>
-    Url de l'image : <input type="text" [(ngModel)]="jv.urlImage"(blur)="updateJeuxvideo(jv)">
+    Nom : {{jv.nom}} <br/>
+    Editeur :  {{jv.editeur}}<br/>
+    Types : {{jv.types}}<br/>
+    Developpeur : {{jv.developpeur}} <br/>
+    Sortie : {{jv.sortie}}<br/>
+    Genres :  {{jv.genres}}<br/>
+    Theme :  {{jv.theme}}<br/>
+    Prix :  {{jv.prix}}<br/>
+    Description :  {{jv.description}}<br/>
   </li>
 
 </ul>

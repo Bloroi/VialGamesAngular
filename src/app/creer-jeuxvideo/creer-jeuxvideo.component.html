@@ -1,0 +1,18 @@
+<h1>Créer un Jeux vidéo</h1>
+
+<form #formulaire="ngForm" (submit)="createJeuxvideo()">
+  Nom : <input type="text" name="nom" [(ngModel)]="tmpNom" required > <br/>
+  Editeur : <input type="text" name="editeur" [(ngModel)]="tmpEditeur" required><br/>
+  Types : <input type="text" name="types" [(ngModel)]="tmpTypes" required><br/>
+  Developpeur : <input type="text" name="developpeur" [(ngModel)]="tmpDeveloppeur" required><br/>
+  Sortie : <input type="text" name="sortie" [(ngModel)]="tmpSortie" required><br/>
+  Genres : <input type="text" name="genres" [(ngModel)]="tmpGenres" required><br/>
+  Theme : <input type="text" name="theme" [(ngModel)]="tmpTheme" required><br/>
+  Prix : <input type="number" name="prix" step="0.01" [(ngModel)]="tmpPrix" required><br/>
+  Description : <input [ngStyle]="{height: '100px' , width:'350px'}" type="text" name="description" [(ngModel)]="tmpDescription" required><br/>
+  Url de l'image : <input [ngStyle]="{width:'350px' }" type="text" name="urlImage" [(ngModel)]="tmpUrlImage" required><br/><br/>
+
+  <input type="submit" value="Créer le jeuxvideo !" [disabled]="!formulaire.form.valid"> <!-- le valid ne fontionne pas ,chercher !-->
+
+
+</form>
