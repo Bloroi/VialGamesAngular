@@ -4,12 +4,14 @@ import {AccueilComponent} from './accueil/accueil.component';
 import {ManagerJeuxvideoComponent} from './manager-jeuxvideo/manager-jeuxvideo.component';
 import {ManagerMagasinierComponent} from './manager-magasinier/manager-magasinier.component';
 import {PageAdminComponent} from './page-admin/page-admin.component';
+import {PageMembreComponent} from './page-membre/page-membre.component';
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
   {path: 'jvpage', component: ManagerJeuxvideoComponent},
   {path: 'magpage', component: ManagerMagasinierComponent},
   {path: 'adminpage', component: PageAdminComponent},
+  {path: 'membrepage', component: PageMembreComponent},
 ];
 
 @NgModule({

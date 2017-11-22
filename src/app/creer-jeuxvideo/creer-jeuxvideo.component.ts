@@ -19,7 +19,7 @@ export class CreerJeuxvideoComponent implements OnInit {
   private tmpPrix: number = 0.00;
   private tmpDescription: string;
   private tmpUrlImage: string;
-  private tmpStock : number;
+  private tmpStock: number;
   private jvs: Jeuxvideo[] = [];
 
   @Output() private jvsChange: EventEmitter<Jeuxvideo[]> = new EventEmitter();
@@ -38,12 +38,12 @@ export class CreerJeuxvideoComponent implements OnInit {
 
   }
 
-  public emitJeuxvideos(){
+  public emitJeuxvideos() {
     this.jvsChange.next(this.jvs);
     this.jvService.changeListeJv(this.jvs);
   }
 
-  public createJeuxvideo(){
+  public createJeuxvideo() {
     const tmpJv = new Jeuxvideo();
     tmpJv.nom = this.tmpNom;
     tmpJv.editeur = this.tmpEditeur;
