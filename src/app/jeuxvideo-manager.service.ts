@@ -11,6 +11,11 @@ export class JeuxvideoManagerService {
   private listJv = new BehaviorSubject<Jeuxvideo[]>([]);
   currentList = this.listJv.asObservable();
 
+  private panierJv = new BehaviorSubject<Jeuxvideo[]>([]);
+  currentPanierList = this.panierJv.asObservable();
+
+
+
   constructor(public http:HttpClient) { }
 
   public getAllJvs(): Observable<Jeuxvideo[]>{
@@ -33,6 +38,10 @@ export class JeuxvideoManagerService {
 
   changeListeJv(listeJv: Jeuxvideo[]){
     this.listJv.next(listeJv);
+  }
+
+  changePanierJv(panier: Jeuxvideo[]){
+    this.panierJv.next(panier);
   }
 
 }

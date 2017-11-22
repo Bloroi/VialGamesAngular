@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<!--<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">VialGames</a>
@@ -16,8 +16,31 @@
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
   </div>
+</nav>-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-header">
+    <img src="https://img15.hostingpics.net/pics/851966ViAl2.png" class="navbar-brand" height="50px">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a [routerLink]="['/']">Accueil</a></li>
+      <li><a [routerLink]="['/jvpage']">Modifs Jv</a></li>
+      <li><a [routerLink]="['/magpage']">Magasiniers</a></li>
+      <li><a [routerLink]="['/adminpage']">Page Admin</a></li>
+    </ul>
+    <div class="navbar-header navbar-right">
+      <p class="navbar-text">
+        <a [routerLink]="['/panierpage']" class="navbar-link">Panier</a> |
+        <a class="navbar-link">Username</a>
+      </p>
+    </div>
+  </div>
 </nav>
-<hr>
 <!--
 <hr>
 <nav><a [routerLink]="['/']">Accueil</a> | <a [routerLink]="['/jvpage']">Page jv</a> | <a [routerLink]="['/magpage']">Page mag</a> | <a [routerLink]="['/adminpage']">Page Admin</a></nav>

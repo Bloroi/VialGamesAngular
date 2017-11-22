@@ -7,17 +7,16 @@
 
 <hr><br/>
 <div class="container">
-<div class="row">
-  <section class="col-sm-12">
-
+<div class="row" >
+  <section class="col-sm-10" style="background-color: slategrey">
 
   <div *ngFor="let jv of jvs|filterprixJv:typeFilterPrix ; index as i;">
-    <div class="row top-buffer" style=" background-color:blanchedalmond">
+    <div class="row top-buffer"  style=" background-color:blanchedalmond">
       <div class="col-sm-3" style ="background-color: burlywood;padding:25px;text-align:center;">
 
         <img  src = "{{jv.urlImage}}"  height="250" width="175"/>
       </div>
-      <div class="col-sm-7" style ="padding:10px;vertical-align: middle;">
+      <div class="col-sm-7" style ="padding:10px;">
           <strong>Nom :</strong> {{jv.nom}} <br/>
           <strong>Editeur :</strong>  {{jv.editeur}}<br/>
           <strong>Types :</strong> {{jv.types}}<br/>
@@ -30,10 +29,16 @@
           <strong>Stock :</strong>  {{jv.stock}}<br/>
       </div>
       <div class="col-sm-2" >
-        <input type="submit" value="Commander ce jeu" >
+        <input type="submit" value="Ajouter au panier !" (click)="addPanier(jv)"  >
       </div>
     </div>
   </div>
   </section>
+  <nav class="col-sm-2" style="background-color : beige;padding:20px;">
+    <H1>Panier</H1><br>
+    Nombres d'articles : {{nombrePanier}}<br/>
+    Sous-total : {{prixPanier}}€<br/><br/>
+    <input type ="submit" [routerLink]="['/panierpage']" name="voirPanier" value="Voir panier" >
+  </nav>
 </div>
 </div>

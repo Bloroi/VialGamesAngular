@@ -1,0 +1,20 @@
+
+<table>
+  <tr>
+    <th><strong>Nom du jeuxvideo</strong></th>
+    <th><strong>Type</strong></th>
+    <th><strong>Prix(EUR)</strong></th>
+    <th>Supprimer</th>
+  </tr>
+<tr *ngFor="let jv of listeJv; index as i;">
+
+  <td >    {{jv.nom}}</td>
+  <td>    {{jv.types}}</td>
+  <td>    {{jv.prix}}</td>
+  <td><input type="submit" value ="X" (click)="deleteJvPanier(i)"></td>
+
+</tr>
+</table>
+
+<br/>
+<input type="submit" value="Finaliser ma commande" [hidden]="listeJv.length==0"><br/>

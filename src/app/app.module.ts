@@ -17,6 +17,7 @@ import { PageAdminComponent } from './page-admin/page-admin.component';
 import {AdministrateurManagerService} from './administrateur-manager.service';
 import { FilterprixJvPipe } from './filterprix-jv.pipe';
 import {HttpClientModule} from '@angular/common/http';
+import { PanierComponent } from './panier/panier.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {HttpClientModule} from '@angular/common/http';
     ModifierMagasinierComponent,
     ManagerMagasinierComponent,
     PageAdminComponent,
-    FilterprixJvPipe
+    FilterprixJvPipe,
+    PanierComponent
   ],
   imports: [
     BrowserModule,

@@ -34,7 +34,7 @@ export class CreerJeuxvideoComponent implements OnInit {
         this.emitJeuxvideos();
       });
 
-    //this.magService.currentList.subscribe(listjvs => this.jvs = listjvs);
+    this.jvService.currentList.subscribe(listjvs => this.jvs = listjvs);
 
   }
 
