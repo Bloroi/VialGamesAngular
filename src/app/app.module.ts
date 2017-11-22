@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { JeuxvideoListComponent } from './jeuxvideo-list/jeuxvideo-list.component';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
 import {JeuxvideoManagerService} from './jeuxvideo-manager.service';
 import {AppRoutingModule} from './app-routing.module';
 import { AccueilComponent } from './accueil/accueil.component';
@@ -14,6 +13,10 @@ import {CreerMagasinierComponent} from './creer-magasinier/creer-magasinier.comp
 import {ModifierMagasinierComponent} from './modifier-magasinier/modifier-magasinier.component';
 import {ManagerMagasinierComponent} from './manager-magasinier/manager-magasinier.component';
 import {MagasinierManagerService} from './magasinier-manager.service';
+import { PageAdminComponent } from './page-admin/page-admin.component';
+import {AdministrateurManagerService} from './administrateur-manager.service';
+import { FilterprixJvPipe } from './filterprix-jv.pipe';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -26,15 +29,17 @@ import {MagasinierManagerService} from './magasinier-manager.service';
     ManagerJeuxvideoComponent,
     CreerMagasinierComponent,
     ModifierMagasinierComponent,
-    ManagerMagasinierComponent
+    ManagerMagasinierComponent,
+    PageAdminComponent,
+    FilterprixJvPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [JeuxvideoManagerService,MagasinierManagerService],
+  providers: [JeuxvideoManagerService,MagasinierManagerService,AdministrateurManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

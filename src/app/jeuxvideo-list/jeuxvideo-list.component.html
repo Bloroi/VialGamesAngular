@@ -1,17 +1,39 @@
 <h1>Affichage des jeux vidéos</h1>
+<hr>
 
-<ul>
-  <li *ngFor="let jv of jvs ; index as i;">
-    <img src = "{{jv.urlImage}}"  height="200" /> <br/>
-    Nom : {{jv.nom}} <br/>
-    Editeur :  {{jv.editeur}}<br/>
-    Types : {{jv.types}}<br/>
-    Developpeur : {{jv.developpeur}} <br/>
-    Sortie : {{jv.sortie}}<br/>
-    Genres :  {{jv.genres}}<br/>
-    Theme :  {{jv.theme}}<br/>
-    Prix :  {{jv.prix}}<br/>
-    Description :  {{jv.description}}<br/>
-  </li>
+<input type="radio" name="typeFilterprix" [value]="0" [(ngModel)]="typeFilterPrix"> Du + récent
+<input type="radio" name="typeFilterPrix" [value]="1" [(ngModel)]="typeFilterPrix"> Croissant
+<input type="radio" name="typeFilterprix" [value]="2" [(ngModel)]="typeFilterPrix"> Décroissant
 
-</ul>
+<hr><br/>
+<div class="container">
+<div class="row">
+  <section class="col-sm-12">
+
+
+  <div *ngFor="let jv of jvs|filterprixJv:typeFilterPrix ; index as i;">
+    <div class="row top-buffer" style=" background-color:blanchedalmond">
+      <div class="col-sm-3" style ="background-color: burlywood;padding:25px;text-align:center;">
+
+        <img  src = "{{jv.urlImage}}"  height="250" width="175"/>
+      </div>
+      <div class="col-sm-7" style ="padding:10px;vertical-align: middle;">
+          <strong>Nom :</strong> {{jv.nom}} <br/>
+          <strong>Editeur :</strong>  {{jv.editeur}}<br/>
+          <strong>Types :</strong> {{jv.types}}<br/>
+          <strong>Developpeur :</strong> {{jv.developpeur}} <br/>
+          <strong>Sortie :</strong> {{jv.sortie}}<br/>
+          <strong>Genres :</strong> {{jv.genres}}<br/>
+          <strong>Theme :</strong>  {{jv.theme}}<br/>
+          <strong>Prix :</strong>  {{jv.prix}}€<br/>
+          <strong>Description :</strong>  {{jv.description}}<br/>
+          <strong>Stock :</strong>  {{jv.stock}}<br/>
+      </div>
+      <div class="col-sm-2" >
+        <input type="submit" value="Commander ce jeu" >
+      </div>
+    </div>
+  </div>
+  </section>
+</div>
+</div>

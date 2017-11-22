@@ -10,9 +10,10 @@ export class Jeuxvideo {
   private _prix : number;
   private _description : string;
   private _urlImage : string;
+  private _stock:number;
 
 
-  constructor(nom: string = 'unknown', editeur: string= 'unknown', types: string= 'unknown', developpeur: string= 'unknown', sortie: string = 'unknown', genres: string = 'unknown', theme: string = 'unknown', prix: number = 0.0, description: string = 'unknown',urlImage: string ='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg') {
+  constructor(nom: string = 'unknown', editeur: string= 'unknown', types: string= 'unknown', developpeur: string= 'unknown', sortie: string = 'unknown', genres: string = 'unknown', theme: string = 'unknown', prix: number = 0.0, description: string = 'unknown',urlImage: string ='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg', stock:number = 0) {
     this._nom = nom;
     this._editeur = editeur;
     this._types = types;
@@ -23,9 +24,8 @@ export class Jeuxvideo {
     this._prix = prix;
     this._description = description;
     this._urlImage = urlImage;
+    this._stock = stock;
   }
-
-
 
 
   get id(): number {
@@ -116,6 +116,14 @@ export class Jeuxvideo {
     this._urlImage= value;
   }
 
+  get stock(): number {
+    return this._stock;
+  }
+
+  set stock(value: number) {
+    this._stock = value;
+  }
+
   public toString(): string {
     return this._id+" "+this._nom+" "+this._prix+" "+this._description;
   }
@@ -133,6 +141,7 @@ export class Jeuxvideo {
     tmpJv.prix = rawJv["Prix"];
     tmpJv.description = rawJv["Description"];
     tmpJv.urlImage = rawJv["UrlImage"];
+    tmpJv.stock = rawJv["Stock"];
     return tmpJv;
   }
 
@@ -155,7 +164,8 @@ export class Jeuxvideo {
       "Theme":this.theme,
       "Prix":this.prix,
       "Description":this.description,
-      "UrlImage":this.urlImage
+      "UrlImage":this.urlImage,
+      "Stock":this.stock
     };
   }
 
