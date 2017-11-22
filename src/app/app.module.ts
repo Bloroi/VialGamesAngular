@@ -20,6 +20,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { PanierComponent } from './panier/panier.component';
 import { ManagerMembreComponent } from './manager-membre/manager-membre.component';
 import { PageMembreComponent } from './page-membre/page-membre.component';
+import {MembreManagerService} from './membre-manager.service';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import { PageMembreComponent } from './page-membre/page-membre.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [JeuxvideoManagerService,MagasinierManagerService,AdministrateurManagerService],
+  providers: [JeuxvideoManagerService,MagasinierManagerService,AdministrateurManagerService,MembreManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
