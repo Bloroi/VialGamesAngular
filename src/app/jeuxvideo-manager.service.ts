@@ -18,6 +18,10 @@ export class JeuxvideoManagerService {
 
   constructor(public http:HttpClient) { }
 
+  public get(id:number): Observable<Jeuxvideo>{
+    return this.http.get("http://localhost:56469/api/jeuxvideo/"+id);
+  }
+
   public getAllJvs(): Observable<Jeuxvideo[]>{
     return this.http.get("http://localhost:56469/api/jeuxvideo");
   }

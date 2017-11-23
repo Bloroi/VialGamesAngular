@@ -21,6 +21,9 @@ import { PanierComponent } from './panier/panier.component';
 import { ManagerMembreComponent } from './manager-membre/manager-membre.component';
 import { PageMembreComponent } from './page-membre/page-membre.component';
 import {MembreManagerService} from './membre-manager.service';
+import { PagePayementComponent } from './page-payement/page-payement.component';
+import {ReservationEnCoursManagerService} from "./reservation-en-cours-manager.service";
+import { PageReservEnCoursComponent } from './page-reserv-en-cours/page-reserv-en-cours.component';
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import {MembreManagerService} from './membre-manager.service';
     FilterprixJvPipe,
     PanierComponent,
     ManagerMembreComponent,
-    PageMembreComponent
+    PageMembreComponent,
+    PagePayementComponent,
+    PageReservEnCoursComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ import {MembreManagerService} from './membre-manager.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [JeuxvideoManagerService,MagasinierManagerService,AdministrateurManagerService,MembreManagerService],
+  providers: [JeuxvideoManagerService, MagasinierManagerService, AdministrateurManagerService, MembreManagerService,
+    ReservationEnCoursManagerService, PagePayementComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

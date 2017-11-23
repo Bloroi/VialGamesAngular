@@ -6,6 +6,8 @@ import {ManagerMagasinierComponent} from './manager-magasinier/manager-magasinie
 import {PageAdminComponent} from './page-admin/page-admin.component';
 import {PanierComponent} from './panier/panier.component';
 import {PageMembreComponent} from './page-membre/page-membre.component';
+import {PagePayementComponent} from "./page-payement/page-payement.component";
+import {PageReservEnCoursComponent} from "./page-reserv-en-cours/page-reserv-en-cours.component";
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path: 'adminpage', component: PageAdminComponent},
   {path: 'panierpage', component: PanierComponent},
   {path: 'membrepage', component: PageMembreComponent},
+  {path: 'payementpage', component: PagePayementComponent},
+  {path: 'reservationencourspage', component: PageReservEnCoursComponent},
 ];
 
 @NgModule({
