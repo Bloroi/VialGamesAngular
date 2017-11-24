@@ -26,6 +26,10 @@ export class JeuxvideoManagerService {
     return this.http.get("http://localhost:56469/api/jeuxvideo");
   }
 
+  public getAllJvsVisible(visible:boolean): Observable<Jeuxvideo[]>{
+    return this.http.get("http://localhost:56469/api/jeuxvideo?visible="+visible);
+  }
+
   public createJv(jv : Jeuxvideo) : Observable<Jeuxvideo>{
     return this.http.post("http://localhost:56469/api/jeuxvideo",jv.getCleanDataForSending());
   }

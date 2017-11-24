@@ -1,19 +1,20 @@
 export class Jeuxvideo {
-  private _id : number;
-  private _nom : string;
-  private _editeur : string;
+  private _id: number;
+  private _nom: string;
+  private _editeur: string;
   private _types: string;
-  private _developpeur : string;
-  private _sortie : string;
-  private _genres : string;
-  private _theme : string;
-  private _prix : number;
-  private _description : string;
-  private _urlImage : string;
-  private _stock:number;
+  private _developpeur: string;
+  private _sortie: string;
+  private _genres: string;
+  private _theme: string;
+  private _prix: number;
+  private _description: string;
+  private _urlImage: string;
+  private _stock: number;
+  private _visible: boolean;
 
 
-  constructor(nom: string = 'unknown', editeur: string= 'unknown', types: string= 'unknown', developpeur: string= 'unknown', sortie: string = 'unknown', genres: string = 'unknown', theme: string = 'unknown', prix: number = 0.0, description: string = 'unknown',urlImage: string ='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg', stock:number = 0) {
+  constructor(nom: string = 'unknown', editeur: string= 'unknown', types: string= 'unknown', developpeur: string= 'unknown', sortie: string = 'unknown', genres: string = 'unknown', theme: string = 'unknown', prix: number = 0.0, description: string = 'unknown', urlImage: string = 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg', stock: number = 0, visible: boolean= false) {
     this._nom = nom;
     this._editeur = editeur;
     this._types = types;
@@ -25,6 +26,7 @@ export class Jeuxvideo {
     this._description = description;
     this._urlImage = urlImage;
     this._stock = stock;
+    this._visible = visible;
   }
 
 
@@ -113,7 +115,7 @@ export class Jeuxvideo {
   }
 
   set urlImage(value: string) {
-    this._urlImage= value;
+    this._urlImage = value;
   }
 
   get stock(): number {
@@ -124,29 +126,39 @@ export class Jeuxvideo {
     this._stock = value;
   }
 
-  public toString(): string {
-    return this._id+" "+this._nom+" "+this._prix+" "+this._description;
+  get visible(): boolean {
+    return this._visible;
   }
 
-  public static fromJSON(rawJv:any): Jeuxvideo{
+  set visible(value: boolean) {
+    this._visible = value;
+  }
+
+
+  public toString(): string {
+    return this._id + ' ' + this._nom + ' ' + this._prix + ' ' + this._description;
+  }
+
+  public static fromJSON(rawJv: any): Jeuxvideo{
     const tmpJv = new Jeuxvideo();
-    tmpJv.id = rawJv["Id"];
-    tmpJv.nom = rawJv["Nom"];
-    tmpJv.editeur = rawJv["Editeur"];
-    tmpJv.types = rawJv["Types"];
-    tmpJv.developpeur = rawJv["Developpeur"];
-    tmpJv.sortie = rawJv["Sortie"];
-    tmpJv.genres = rawJv["Genres"];
-    tmpJv.theme = rawJv["Theme"];
-    tmpJv.prix = rawJv["Prix"];
-    tmpJv.description = rawJv["Description"];
-    tmpJv.urlImage = rawJv["UrlImage"];
-    tmpJv.stock = rawJv["Stock"];
+    tmpJv.id = rawJv['Id'];
+    tmpJv.nom = rawJv['Nom'];
+    tmpJv.editeur = rawJv['Editeur'];
+    tmpJv.types = rawJv['Types'];
+    tmpJv.developpeur = rawJv['Developpeur'];
+    tmpJv.sortie = rawJv['Sortie'];
+    tmpJv.genres = rawJv['Genres'];
+    tmpJv.theme = rawJv['Theme'];
+    tmpJv.prix = rawJv['Prix'];
+    tmpJv.description = rawJv['Description'];
+    tmpJv.urlImage = rawJv['UrlImage'];
+    tmpJv.stock = rawJv['Stock'];
+    tmpJv.visible = rawJv['Visible'];
     return tmpJv;
   }
 
-  public static fromJSONs(rawJvs:any[]): Jeuxvideo[]{
-    return rawJvs.reduce((jvs,currentElement)=>{
+  public static fromJSONs(rawJvs: any[]): Jeuxvideo[]{
+    return rawJvs.reduce((jvs, currentElement) => {
       jvs.push(Jeuxvideo.fromJSON(currentElement));
       return jvs;
     }, []);
@@ -154,18 +166,19 @@ export class Jeuxvideo {
 
   public getCleanDataForSending(): any{
     return{
-      "Id": this.id,
-      "Nom":this.nom,
-      "Editeur":this.editeur,
-      "Types":this.types,
-      "Developpeur":this.developpeur,
-      "Sortie":this.sortie,
-      "Genres":this.genres,
-      "Theme":this.theme,
-      "Prix":this.prix,
-      "Description":this.description,
-      "UrlImage":this.urlImage,
-      "Stock":this.stock
+      'Id': this.id,
+      'Nom': this.nom,
+      'Editeur': this.editeur,
+      'Types': this.types,
+      'Developpeur': this.developpeur,
+      'Sortie': this.sortie,
+      'Genres': this.genres,
+      'Theme': this.theme,
+      'Prix': this.prix,
+      'Description': this.description,
+      'UrlImage': this.urlImage,
+      'Stock': this.stock,
+      'Visible': this.visible
     };
   }
 

@@ -20,6 +20,7 @@ export class CreerJeuxvideoComponent implements OnInit {
   private tmpDescription: string;
   private tmpUrlImage: string;
   private tmpStock: number;
+  private tmpVisible: boolean = true;
   private jvs: Jeuxvideo[] = [];
 
   @Output() private jvsChange: EventEmitter<Jeuxvideo[]> = new EventEmitter();
@@ -56,6 +57,7 @@ export class CreerJeuxvideoComponent implements OnInit {
     tmpJv.description = this.tmpDescription;
     tmpJv.urlImage = this.tmpUrlImage;
     tmpJv.stock = this.tmpStock;
+    tmpJv.visible = this.tmpVisible;
     this.jvs.push(tmpJv);
     this.jvService.createJv(tmpJv).subscribe(jv => tmpJv.id = Jeuxvideo.fromJSON(jv).id);
     this.effacerChamp();
@@ -74,6 +76,7 @@ export class CreerJeuxvideoComponent implements OnInit {
     this.tmpDescription = '';
     this.tmpUrlImage = '';
     this.tmpStock = 0;
+    this.tmpVisible= true;
   }
 
 

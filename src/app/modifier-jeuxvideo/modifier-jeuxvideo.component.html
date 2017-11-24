@@ -14,7 +14,8 @@
     Prix : <input type="text" [(ngModel)]="jv.prix"(blur)="updateJeuxvideo(jv)"> <br/>
     Description : <textarea rows="8" cols="200" [(ngModel)]="jv.description"(blur)="updateJeuxvideo(jv)"></textarea> <br/>
     Url de l'image : <input type="text" [(ngModel)]="jv.urlImage"(blur)="updateJeuxvideo(jv)"><br/>
-    Stock :  <input type="text" [(ngModel)]="jv.stock"(blur)="updateJeuxvideo(jv)">
+    Stock :  <input type="text" [(ngModel)]="jv.stock"(blur)="updateJeuxvideo(jv)"><br/>
+    Visible : <input type="checkbox" [(ngModel)]="jv.visible"(blur)="updateJeuxvideo(jv)"><br/>
   </li>
 
 </ul>

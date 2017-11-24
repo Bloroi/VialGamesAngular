@@ -21,7 +21,7 @@ export class JeuxvideoListComponent implements OnInit {
 
   ngOnInit() {
     this.jvService
-      .getAllJvs()
+      .getAllJvsVisible(true)
       .subscribe(jvs => {
         this.jvs = Jeuxvideo.fromJSONs(jvs);
       });
