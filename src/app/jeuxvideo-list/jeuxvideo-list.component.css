@@ -1,2 +1,6 @@
 .top-buffer { margin-top:20px; }
 
+.inactiveLink:hover {
+  background-color: white;
+  cursor: default;
+}

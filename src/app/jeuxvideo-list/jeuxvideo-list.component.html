@@ -1,18 +1,50 @@
 <h1>Affichage des jeux vidéos</h1>
 <hr>
 
-<input type="radio" name="typeFilterprix" [value]="0" [(ngModel)]="typeFilterPrix"> Du + récent
-<input type="radio" name="typeFilterPrix" [value]="1" [(ngModel)]="typeFilterPrix"> Croissant
-<input type="radio" name="typeFilterprix" [value]="2" [(ngModel)]="typeFilterPrix"> Décroissant
 
+<nav class="navbar navbar-inverse">
+  <div >
+    <button type="button" style = 'background-color: black' class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <!--Problème les deux listes sont connectées -->
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li><a class="inactiveLink"><input type="radio" name="typeFilterprix" [value]="0" [(ngModel)]="typeFilterPrix"> Du + récent</a></li>
+      <li><a class="inactiveLink"><input type="radio" name="typeFilterPrix" [value]="1" [(ngModel)]="typeFilterPrix"> Croissant</a></li>
+      <li><a class="inactiveLink"><input type="radio" name="typeFilterprix" [value]="2" [(ngModel)]="typeFilterPrix"> Décroissant</a></li>
+    </ul>
+    <!--<form class="navbar-form navbar-left">
+      <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let jv of jvs" [value]="jv.nom">
+            <span>{{ jv.nom }}</span> |
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      </form>
+    </form>-->
+
+    <form class="navbar-form navbar-left">
+      <div class="form-group">
+        <input type="text" name ="searchFilter" class="form-control" placeholder="Search" [(ngModel)]="searchFilter">
+      </div>
+      <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+    </form>
+  </div>
+</nav>
 <hr><br/>
 <div class="container">
 <div class="row" >
-  <section class="col-sm-10" style="background-color: slategrey">
+  <section class="col-sm-10 " style="background-color: slategrey">
 
-  <div *ngFor="let jv of jvs|filterprixJv:typeFilterPrix ; index as i;">
+  <div *ngFor="let jv of jvs|filterprixJv:typeFilterPrix | filterNomJv:searchFilter ; index as i;">
     <div class="row top-buffer"  style=" background-color:blanchedalmond">
-      <div class="col-sm-3" style ="background-color: burlywood;padding:25px;text-align:center;">
+      <div class="col-sm-3"  style ="background-color: burlywood;padding:25px;text-align:center;">
 
         <img  src = "{{jv.urlImage}}"  height="250" width="175"/>
       </div>
@@ -26,7 +58,7 @@
           <strong>Theme :</strong>  {{jv.theme}}<br/>
           <strong>Prix :</strong>  {{jv.prix}}€<br/>
           <strong>Description :</strong>  {{jv.description}}<br/>
-          <strong>Stock :</strong>  {{jv.stock}}<br/>
+          <strong>Stock :</strong>  {{jv.stock}} <span [hidden]="jv.stock!=0" style ="color:red">Plus en stock !</span><br/>
       </div>
       <div class="col-sm-2" >
         <input type="submit" value="Ajouter au panier !" (click)="addPanier(jv)"  >

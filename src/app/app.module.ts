@@ -24,6 +24,7 @@ import {MembreManagerService} from './membre-manager.service';
 import { PagePayementComponent } from './page-payement/page-payement.component';
 import {ReservationEnCoursManagerService} from "./reservation-en-cours-manager.service";
 import { PageReservEnCoursComponent } from './page-reserv-en-cours/page-reserv-en-cours.component';
+import { FilterNomJvPipe } from './filter-nom-jv.pipe';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { PageReservEnCoursComponent } from './page-reserv-en-cours/page-reserv-e
     PageMembreComponent,
     PagePayementComponent,
     PageReservEnCoursComponent,
+    FilterNomJvPipe,
   ],
   imports: [
     BrowserModule,
