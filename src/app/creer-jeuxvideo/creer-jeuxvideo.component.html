@@ -1,19 +1,77 @@
 <h1>Créer un Jeux vidéo</h1>
 
-<form #formulaire="ngForm" (submit)="createJeuxvideo()">
-  Nom : <input type="text" name="nom" [(ngModel)]="tmpNom" required > <br/>
-  Editeur : <input type="text" name="editeur" [(ngModel)]="tmpEditeur" required><br/>
-  Types : <input type="text" name="types" [(ngModel)]="tmpTypes" required><br/>
-  Developpeur : <input type="text" name="developpeur" [(ngModel)]="tmpDeveloppeur" required><br/>
-  Sortie : <input type="text" name="sortie" [(ngModel)]="tmpSortie" required><br/>
-  Genres : <input type="text" name="genres" [(ngModel)]="tmpGenres" required><br/>
-  Theme : <input type="text" name="theme" [(ngModel)]="tmpTheme" required><br/>
-  Prix : <input type="number" name="prix" step="0.01" [(ngModel)]="tmpPrix" required><br/>
-  Description : <textarea rows="8" cols="200" name="description" [(ngModel)]="tmpDescription" required></textarea><br/>
-  Url de l'image : <input [ngStyle]="{width:'350px' }" type="text" name="urlImage" [(ngModel)]="tmpUrlImage" required><br/>
-  Stock : <input type="number" name="stock" [(ngModel)]="tmpStock" required><br/>
-  Rendre disponible <input type="checkbox" name="visible" [(ngModel)]="tmpVisible" ><br/><br/>
+<div class="container">
 
-  <input type="submit" value="Créer le jeuxvideo !" [disabled]="!formulaire.form.valid">
+  <ul class="event-list">
+    <li>
+<form #formulaire="ngForm" (submit)="createJeuxvideo()">
+
+  <section id="contact">
+
+    <div class="row" style="margin-bottom:15px;">
+      <div class="contact-section">
+
+
+          <div class="col-md-6" >
+
+
+              <label>Nom</label>
+              <input type="text" name ="nom" class="form-control" [(ngModel)]="tmpNom" placeholder="Taper le nom du jeu" required>
+
+
+              <label>Editeur</label>
+              <input type="text" name ="editeur" class="form-control" [(ngModel)]="tmpEditeur"  placeholder="Taper le nom de l'éditeur" required>
+
+
+              <label>Types</label>
+              <input type="text" name ="types" class="form-control" [(ngModel)]="tmpTypes" placeholder="Taper le(s) type(s) du jeu" required>
+
+
+              <label>Développeurs</label>
+              <input type="text" name ="dev" class="form-control" [(ngModel)]="tmpDeveloppeur" placeholder="Taper le(s) nom(s) du/des développeur(s)" required>
+
+
+              <label>Sortie</label>
+              <input type="text" name ="sortie" class="form-control" [(ngModel)]="tmpSortie" placeholder="Taper la date de sortie (AAAA-MM-JJ)" required>
+
+
+              <label>Genres</label>
+              <input type="text" name ="genres" class="form-control" [(ngModel)]="tmpGenres" placeholder="Taper le(s) genre(s) du jeu" required>
+
+            <label>Themes</label>
+            <input type="text" name ="themes" class="form-control" [(ngModel)]="tmpTheme" placeholder="Taper les(s) thème(s) du jeu" required>
+
+          </div>
+          <div class="col-md-6">
+
+
+              <label>Prix</label>
+              <input type="number" step="0.01"  name="prix" class="form-control" [(ngModel)]="tmpPrix" placeholder="Taper le prix du jeu" required>
+
+
+              <label>Url de la jaquette</label>
+              <input type="text" name ="url" class="form-control" [(ngModel)]="tmpUrlImage" placeholder="Taper l'url de l'image" required>
+
+
+              <label>Stock en magasin</label>
+              <input type="number" name ="stock" class="form-control" [(ngModel)]="tmpStock" placeholder="Taper le stock du jeu" required>
+
+
+              <label>Description</label>
+              <textarea  class="form-control" name="description" id="description" [(ngModel)]="tmpDescription" placeholder="Taper la description du jeu" required></textarea>
+
+              <label>Visibilité</label>
+              <input type="checkbox" name ="visible" class="form-control" [(ngModel)]="tmpVisible">
+
+          </div>
+
+      </div>
+    </div>
+    <input type="submit" class="btn btn-default" value="Créer le jeuxvideo !" style="text-align: center;"  [disabled]="!formulaire.form.valid">
+  </section>
 
 </form>
+
+    </li>
+  </ul>
+</div>

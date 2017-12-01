@@ -9,6 +9,8 @@ export class FilterNomJvPipe implements PipeTransform {
   transform(value: Jeuxvideo[], filterWanted: string= ''): any {
 
     const chaine = filterWanted.toLowerCase();
+
+
 /*
     for (let i = 0; i < value.length; i++) {
       if (this.comparaison(value[i].nom.toLowerCase(), chaine)) {
@@ -17,8 +19,15 @@ export class FilterNomJvPipe implements PipeTransform {
     }
 
     return this.liste;*/
-    return chaine ? value.filter( (item) => this.comparaison(item.nom.toLowerCase(), chaine) <= 8) : value;
 
+    if(chaine.length < 10){
+      return chaine ? value.filter( (item) => item.nom.toLowerCase().indexOf(chaine) !== -1) : value;
+    }else {
+
+
+      return chaine ? value.filter((item) => this.comparaison(item.nom.toLowerCase(), chaine) <= 8) : value;
+
+    }
     //return chaine ? value.filter( (item) => comparaison(item.nom.toLowerCase(),chaine) !== -1) : value;
     //return chaine ? value.filter( (item) => item.name.toLowerCase().indexOf(chaine) !== -1) : value;
   }

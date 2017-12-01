@@ -1,0 +1,217 @@
+/*Contact sectiom*/
+.content-header{
+  font-family: 'Oleo Script', cursive;
+  color:#fcc500;
+  font-size: 45px;
+}
+
+.section-content{
+  text-align: center;
+
+}
+#contact{
+
+  font-family: 'Teko', sans-serif;
+  padding : 10px;
+  width: 100%;
+  background: gray; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, dimgray, lightgray); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, dimgray, lightgray); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color : #fff;
+}
+.contact-section{
+  padding-top: 10px;
+}
+
+
+.form-line{
+  border-right: 1px solid #B29999;
+}
+
+.form-group{
+  margin-top: 10px;
+}
+label{
+  font-size: 1.3em;
+  line-height: 1em;
+  font-weight: normal;
+}
+.form-control{
+  font-size: 1.3em;
+  color: #080808;
+}
+textarea.form-control {
+  height: 135px;
+  /* margin-top: px;*/
+}
+
+.submit{
+  font-size: 1.1em;
+  float: right;
+  width: 150px;
+  background-color: transparent;
+  color: #fff;
+
+}
+
+.top-buffer { margin-top:20px; }
+
+.inactiveLink:hover {
+  background-color: white;
+  cursor: default;
+}
+
+@import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+body {
+  padding: 0px 0px;
+  background-color: rgb(220, 220, 220);
+}
+
+.affix {
+  top: 5px;
+  left:5px;
+  z-index: 9999 !important;
+}
+
+.panier{
+  box-shadow: 0px 0px 5px rgb(51, 51, 51);
+  box-shadow: 0px 0px 5px rgba(51, 51,51,0.7);
+}
+
+
+.green .active a,
+.green .active a:hover {
+  color : white;
+  background-color: #47a447;
+  border-color: #398439;
+}
+
+
+.event-list {
+  list-style: none;
+  font-family: 'Lato', sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+.event-list > li {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 5px rgb(51, 51, 51);
+  box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
+  padding: 0px;
+  margin: 0px 0px 20px;
+}
+
+
+.event-list > li > img {
+  width:75%;
+  padding-left: 25%;
+}
+.event-list > li > .info {
+  padding: 10px;
+  text-align: center;
+}
+.event-list > li > .info > .title {
+  font-size: 17pt;
+  font-weight: 700;
+  margin: 0px;
+}
+.event-list > li > .info > .desc {
+  font-size: 13pt;
+  font-weight: 300;
+  margin: 0px;
+}
+.event-list > li > .info > ul{
+  display: table;
+  list-style: none;
+  margin: 10px 0px 0px;
+  padding: 0px;
+  width: 100%;
+  text-align: center;
+
+}
+
+.event-list > li > .info > ul > li{
+  display: table-cell;
+  cursor: pointer;
+  color: rgb(30, 30, 30);
+  font-size: 11pt;
+  font-weight: 300;
+  padding: 3px 0px;
+}
+.event-list > li > .info > ul > li > a {
+  display: block;
+  width: 100%;
+  color: rgb(30, 30, 30);
+  text-decoration: none;
+}
+
+.event-list > li > .info > ul > li:hover{
+  color: rgb(30, 30, 30);
+  background-color: rgb(200, 200, 200);
+}
+.edit a,
+.confirm a,
+.delete a {
+  display: block;
+  width: 100%;
+  color: rgb(75, 110, 168) !important;
+}
+.confirm a {
+  color: rgb(79, 213, 248) !important;
+}
+.delete a {
+  color: rgb(221, 75, 57) !important;
+}
+.edit:hover a {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(75, 110, 168) !important;
+}
+.confirm:hover a {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(79, 213, 248) !important;
+}
+.delete:hover a {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(221, 75, 57) !important;
+}
+
+@media (min-width: 768px) {
+
+  ul.nav-pills {
+    position: fixed;
+    background-color : beige;
+    padding:20px;
+    margin-right: 10px;
+    box-shadow: 0px 0px 5px rgb(51, 51, 51);
+    box-shadow: 0px 0px 5px rgba(51, 51,51,0.7);
+  }
+
+  .event-list > li {
+    position: relative;
+    display: block;
+    padding: 0px;
+  }
+
+  .event-list > li > img {
+    display: inline-block;
+    width: 190px;
+    height: 280px;
+    padding: 0px;
+    margin: 0px;
+    float : left;
+    margin-right : 10px;
+  }
+
+
+  .event-list > li > .info {
+    position: relative;
+    text-align: left;
+    margin: 10px;
+  }
+
+  .contact-section .col-md-6{
+    width: 50%;
+  }
+
+}

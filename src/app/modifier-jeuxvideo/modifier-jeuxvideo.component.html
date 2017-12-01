@@ -1,21 +1,84 @@
 <h1>Modifier des jeux vidéos</h1>
 
-<ul>
+<div class="container">
+
+<ul class="event-list">
   <li *ngFor="let jv of jvs ; index as i;">
-    Id : {{jv.id}}    <button (click)="deleteJeuxvideo(i)">X</button> <br/>
-    <img src = "{{jv.urlImage}}"  height="200" /> <br/>
-    Nom : <input type="text" [(ngModel)]="jv.nom"(blur)="updateJeuxvideo(jv)"> <br/>
-    Editeur : <input type="text" [(ngModel)]="jv.editeur"(blur)="updateJeuxvideo(jv)"> <br/>
-    Types : <input type="text" [(ngModel)]="jv.types"(blur)="updateJeuxvideo(jv)"> <br/>
-    Developpeur : <input type="text" [(ngModel)]="jv.developpeur"(blur)="updateJeuxvideo(jv)"> <br/>
-    Sortie : <input type="text" [(ngModel)]="jv.sortie"(blur)="updateJeuxvideo(jv)"> <br/>
-    Genres : <input type="text" [(ngModel)]="jv.genres"(blur)="updateJeuxvideo(jv)"> <br/>
-    Theme : <input type="text" [(ngModel)]="jv.theme"(blur)="updateJeuxvideo(jv)"> <br/>
-    Prix : <input type="text" [(ngModel)]="jv.prix"(blur)="updateJeuxvideo(jv)"> <br/>
-    Description : <textarea rows="8" cols="200" [(ngModel)]="jv.description"(blur)="updateJeuxvideo(jv)"></textarea> <br/>
-    Url de l'image : <input type="text" [(ngModel)]="jv.urlImage"(blur)="updateJeuxvideo(jv)"><br/>
-    Stock :  <input type="text" [(ngModel)]="jv.stock"(blur)="updateJeuxvideo(jv)"><br/>
-    Visible : <input type="checkbox" [(ngModel)]="jv.visible"(blur)="updateJeuxvideo(jv)"><br/>
+
+
+<section id="contact">
+  <button style="float:right;" class="btn btn-danger" (click)="deleteJeuxvideo(i)">X</button><br/>
+  <div class="row">
+    <div class="section-content">
+      <img src = "{{jv.urlImage}}"  height="200" /><br/>
+      Id : {{jv.id}}
+      <input type="checkbox" name ="visible" class="form-control" [(ngModel)]="jv.visible"(blur)="updateJeuxvideo(jv)">
+
+
+    </div>
+</div>
+    <div class="row">
+  <div class="contact-section">
+
+      <form>
+        <div class="col-md-6" >
+
+          <div class="form-group">
+            <label>Nom</label>
+            <input type="text" name ="nom" class="form-control" [(ngModel)]="jv.nom"(blur)="updateJeuxvideo(jv)" placeholder="Taper le nom du jeu">
+          </div>
+          <div class="form-group">
+            <label>Editeur</label>
+            <input type="text" name ="editeur" class="form-control" [(ngModel)]="jv.editeur"(blur)="updateJeuxvideo(jv)" placeholder="Taper le nom de l'éditeur">
+          </div>
+          <div class="form-group">
+            <label>Types</label>
+            <input type="text" name ="types" class="form-control" [(ngModel)]="jv.types"(blur)="updateJeuxvideo(jv)" placeholder="Taper le(s) type(s) du jeu">
+          </div>
+          <div class="form-group">
+            <label>Développeurs</label>
+            <input type="text" name ="dev" class="form-control" [(ngModel)]="jv.developpeur"(blur)="updateJeuxvideo(jv)" placeholder="Taper le(s) nom(s) du/des développeur(s)">
+          </div>
+          <div class="form-group">
+            <label>Sortie</label>
+            <input type="text" name ="sortie" class="form-control" [(ngModel)]="jv.sortie"(blur)="updateJeuxvideo(jv)" placeholder="Taper la date de sortie (AAAA-MM-JJ)">
+          </div>
+          <div class="form-group">
+            <label>Genres</label>
+            <input type="text" name ="genres" class="form-control" [(ngModel)]="jv.genres"(blur)="updateJeuxvideo(jv)" placeholder="Taper le(s) genre(s) du jeu">
+          </div>
+
+
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Themes</label>
+            <input type="text" name ="themes" class="form-control" [(ngModel)]="jv.theme"(blur)="updateJeuxvideo(jv)" placeholder="Taper les(s) thème(s) du jeu">
+          </div>
+          <div class="form-group">
+            <label>Prix</label>
+            <input type="number" step="0.01"  name="prix" class="form-control" [(ngModel)]="jv.prix"(blur)="updateJeuxvideo(jv)" placeholder="Taper le prix du jeu">
+          </div>
+          <div class="form-group">
+            <label>Url de la jaquette</label>
+            <input type="text" name ="url" class="form-control" [(ngModel)]="jv.urlImage"(blur)="updateJeuxvideo(jv)" placeholder="Taper l'url de l'image">
+          </div>
+          <div class="form-group">
+            <label>Stock en magasin</label>
+            <input type="number" name ="stock" class="form-control" [(ngModel)]="jv.stock"(blur)="updateJeuxvideo(jv)" placeholder="Taper le stock du jeu">
+          </div>
+          <div class="form-group">
+            <label for ="description">Description</label>
+            <textarea  class="form-control" name="description" id="description" [(ngModel)]="jv.description"(blur)="updateJeuxvideo(jv)" placeholder="Taper la description du jeu"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+
+  </section>
+
   </li>
 
 </ul>
+</div>

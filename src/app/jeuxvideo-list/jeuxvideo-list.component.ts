@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {JeuxvideoManagerService} from '../jeuxvideo-manager.service';
 import {Jeuxvideo} from '../jeuxvideo';
 //import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -18,6 +18,7 @@ export class JeuxvideoListComponent implements OnInit {
   private itemPanier: Jeuxvideo[] = [];
   private nombrePanier = 0;
   private prixPanier = 0.00;
+  private newInnerWidth = window.innerWidth;
   //Private member: Membre;
 
   //filtres
@@ -34,7 +35,14 @@ export class JeuxvideoListComponent implements OnInit {
     this.filteredStates = this.stateCtrl.valueChanges
       .startWith(null)
       .map(state => state ? this.filterStates(state) : this.jvs.slice());
+
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.newInnerWidth = event.target.innerWidth;
+  }
+
 
   filterStates(name: string) {
     return this.jvs.filter(state =>

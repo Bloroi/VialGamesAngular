@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { JeuxvideoListComponent } from './jeuxvideo-list/jeuxvideo-list.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JeuxvideoManagerService} from './jeuxvideo-manager.service';
 import {AppRoutingModule} from './app-routing.module';
 import { AccueilComponent } from './accueil/accueil.component';
@@ -25,6 +25,8 @@ import { PagePayementComponent } from './page-payement/page-payement.component';
 import {ReservationEnCoursManagerService} from "./reservation-en-cours-manager.service";
 import { PageReservEnCoursComponent } from './page-reserv-en-cours/page-reserv-en-cours.component';
 import { FilterNomJvPipe } from './filter-nom-jv.pipe';
+//import {MatAutocompleteModule} from '@angular/material';
+
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import { FilterNomJvPipe } from './filter-nom-jv.pipe';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+   // MatAutocompleteModule
   ],
   providers: [JeuxvideoManagerService, MagasinierManagerService, AdministrateurManagerService, MembreManagerService,
     ReservationEnCoursManagerService, PagePayementComponent],
