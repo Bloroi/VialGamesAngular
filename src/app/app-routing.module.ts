@@ -8,6 +8,7 @@ import {PanierComponent} from './panier/panier.component';
 import {PageMembreComponent} from './page-membre/page-membre.component';
 import {PagePayementComponent} from "./page-payement/page-payement.component";
 import {PageReservEnCoursComponent} from "./page-reserv-en-cours/page-reserv-en-cours.component";
+import {PageConnectionComponent} from "./page-connection/page-connection.component";
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'membrepage', component: PageMembreComponent},
   {path: 'payementpage', component: PagePayementComponent},
   {path: 'reservationencourspage', component: PageReservEnCoursComponent},
+  {path: 'connectionpage', component: PageConnectionComponent},
 ];
 
 @NgModule({

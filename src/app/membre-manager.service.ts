@@ -17,6 +17,10 @@ export class MembreManagerService {
     return this.http.get("http://localhost:56469/api/membre");
   }
 
+  public get(username: string, password: string): Observable<Membre>{
+    return this.http.get("http://localhost:56469/api/membre?username="+username+"&password="+password);
+  }
+
   public createM(m : Membre) : Observable<Membre>{
     return this.http.post("http://localhost:56469/api/membre", m.getCleanDataForSending());
   }

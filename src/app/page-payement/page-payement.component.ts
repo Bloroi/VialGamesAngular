@@ -4,6 +4,8 @@ import {JeuxvideoManagerService} from "../jeuxvideo-manager.service";
 import {ReservationEnCours} from "../reservationEnCours";
 import {ReservationEnCoursManagerService} from "../reservation-en-cours-manager.service";
 import {noProviderError} from "@angular/core/src/di/reflective_errors";
+import {MembreConnecteService} from "../membre-connecte.service";
+import {Membre} from "../membre";
 
 @Component({
   selector: 'app-page-payement',
@@ -15,7 +17,9 @@ export class PagePayementComponent implements OnInit {
   private listeRe: ReservationEnCours[] = [];
   private listeJv: Jeuxvideo[] = [];
 
-  constructor(public rfService: ReservationEnCoursManagerService, public jvService: JeuxvideoManagerService) { }
+  constructor(public rfService: ReservationEnCoursManagerService,
+              public jvService: JeuxvideoManagerService,
+              public mcService: MembreConnecteService) { }
 
 
   @Output() private rfsChange: EventEmitter<ReservationEnCours[]> = new EventEmitter();
@@ -64,7 +68,7 @@ export class PagePayementComponent implements OnInit {
         }
       }
       tmpRf.dateLivraison = yyyy+"-"+mm+"-"+dd;
-      tmpRf.idMembre = 1;
+      tmpRf.idMembre = this.mcService.getMembre().id;
       tmpRf.idJeuVideo = jv.id;
       this.listeRe.push(tmpRf);
       this.rfService.createRE(tmpRf).subscribe(re => tmpRf.idReservation = ReservationEnCours.fromJSON(re).idReservation);

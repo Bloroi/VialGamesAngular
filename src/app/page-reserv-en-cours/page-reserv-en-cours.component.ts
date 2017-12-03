@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ReservationEnCours} from "../reservationEnCours";
 import {ReservationEnCoursManagerService} from "../reservation-en-cours-manager.service";
 import {Jeuxvideo} from "../jeuxvideo";
+import {MembreConnecteService} from "../membre-connecte.service";
+import {Membre} from "../membre";
 
 @Component({
   selector: 'app-page-reserv-en-cours',
@@ -12,10 +14,10 @@ export class PageReservEnCoursComponent implements OnInit {
 
   private listeRe: ReservationEnCours[] = [];
 
-  constructor(public reService: ReservationEnCoursManagerService) {}
+  constructor(public reService: ReservationEnCoursManagerService, public mcService: MembreConnecteService) {}
 
   ngOnInit( ) {
-    this.reService.get(1).subscribe(res => {
+    this.reService.get(1, this.mcService.getMembre().id).subscribe(res => {
       this.listeRe = ReservationEnCours.fromJSONs(res);
     });
   }

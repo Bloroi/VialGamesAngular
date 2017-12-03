@@ -24,6 +24,11 @@ import {MembreManagerService} from './membre-manager.service';
 import { PagePayementComponent } from './page-payement/page-payement.component';
 import {ReservationEnCoursManagerService} from "./reservation-en-cours-manager.service";
 import { PageReservEnCoursComponent } from './page-reserv-en-cours/page-reserv-en-cours.component';
+import { PageConnectionComponent } from './page-connection/page-connection.component';
+import {TokenManagerService} from "./token-manager.service";
+import {TokenInterceptor} from "./token-interceptor";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {MembreConnecteService} from "./membre-connecte.service";
 
 
 @NgModule({
@@ -44,6 +49,7 @@ import { PageReservEnCoursComponent } from './page-reserv-en-cours/page-reserv-e
     PageMembreComponent,
     PagePayementComponent,
     PageReservEnCoursComponent,
+    PageConnectionComponent
   ],
   imports: [
     BrowserModule,
@@ -51,8 +57,8 @@ import { PageReservEnCoursComponent } from './page-reserv-en-cours/page-reserv-e
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [JeuxvideoManagerService, MagasinierManagerService, AdministrateurManagerService, MembreManagerService,
-    ReservationEnCoursManagerService, PagePayementComponent],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}, JeuxvideoManagerService, MagasinierManagerService, AdministrateurManagerService, MembreManagerService,
+    ReservationEnCoursManagerService, PagePayementComponent, TokenManagerService, MembreConnecteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
