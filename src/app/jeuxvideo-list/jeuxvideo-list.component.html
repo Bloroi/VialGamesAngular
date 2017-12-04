@@ -52,7 +52,14 @@
         <img  src = "{{jv.urlImage}}"  />
 
         <div class="info">
-          <strong>Nom :</strong> {{jv.nom}} <br/>
+         <span [hidden]="newInnerWidth>767" >
+          <button  class="btn btn-success" (click)="addPanier(jv)">
+            <span style="margin-right:10px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+            Ajouter au panier</button><br/>
+        </span>
+          <strong>Nom :</strong> {{jv.nom}}<span [hidden]="newInnerWidth<768" style ="{float : right}"><button  class="btn btn-success" style="float:right;" (click)="addPanier(jv)">
+          <span style="margin-right:10px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+          Ajouter au panier</button></span><br/>
           <strong>Editeur :</strong>  {{jv.editeur}}<br/>
           <strong>Types :</strong> {{jv.types}}<br/>
           <strong>Developpeur :</strong> {{jv.developpeur}} <br/>
@@ -61,10 +68,8 @@
           <strong>Theme :</strong>  {{jv.theme}}<br/>
           <strong>Prix :</strong>  {{jv.prix}}€<br/>
           <strong>Stock :</strong>  {{jv.stock}} <span [hidden]="jv.stock!=0" style ="color:red">Plus en stock !</span><br/>
-          <div><strong>Description :</strong>  {{jv.description}}</div><br/>
-          <button style ="{float : right}"class="btn btn-success" style="float:right;" (click)="addPanier(jv)">
-            <span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-            Ajouter au panier</button><br/>
+          <div ><strong>Description :</strong>  {{jv.description}}</div>
+
           <!-- <input type="submit" value="Ajouter au panier !" (click)="addPanier(jv)"  >-->
 
         </div>

@@ -53,7 +53,7 @@ body {
   padding-left: 25%;
 }
 .event-list > li > .info {
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
   text-align: center;
 }
 .event-list > li > .info > .title {
@@ -141,8 +141,8 @@ body {
 
   .event-list > li > img {
     display: inline-block;
-    width: 190px;
-    height: 280px;
+    width: 200px;
+    height: 300px;
     padding: 0px;
     margin: 0px;
     float : left;
@@ -153,7 +153,7 @@ body {
   .event-list > li > .info {
     position: relative;
     text-align: left;
-    margin: 10px;
+    margin: 10px 10px 0px 10px;
   }
 
 }
