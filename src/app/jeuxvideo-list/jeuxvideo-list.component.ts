@@ -6,6 +6,7 @@ import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
+import {MembreConnecteService} from "../membre-connecte.service";
 
 @Component({
   selector: 'app-jeuxvideo-list',
@@ -30,7 +31,7 @@ export class JeuxvideoListComponent implements OnInit {
 
 
 
-  constructor(public jvService: JeuxvideoManagerService) {
+  constructor(public jvService: JeuxvideoManagerService, public mcService: MembreConnecteService) {
     this.stateCtrl = new FormControl();
     this.filteredStates = this.stateCtrl.valueChanges
       .startWith(null)

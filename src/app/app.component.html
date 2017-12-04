@@ -31,19 +31,24 @@
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
       <li class="active"><a [routerLink]="['/']">Accueil</a></li>
-      <li><a [routerLink]="['/jvpage']">Modifs Jv</a></li>
-      <li><a [routerLink]="['/magpage']">Magasiniers</a></li>
-      <li><a [routerLink]="['/adminpage']">Page Admin</a></li>
-      <li><a [routerLink]="['/membrepage']">Membre</a></li>
-      <li><a [routerLink]="['/reservationencourspage']">Reservation</a></li>
+      <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/jvpage']">Modifs Jv</a></li>
+      <li *ngIf="this.mcService.getType()=='3'"><a [routerLink]="['/magpage']">Magasiniers</a></li>
+      <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/adminpage']">Page Admin</a></li>
+      <li *ngIf="this.mcService.getType()=='1'"><a [routerLink]="['/reservationencourspage']">Reservation</a></li>
 
     </ul>
     <div class="navbar-header navbar-right">
-      <p class="navbar-text">
-        <a [routerLink]="['/panierpage']" class="navbar-link">Panier</a> |
-        <a [routerLink]="['/connectionpage']"class="navbar-link">Username</a>
-      </p>
-      &nbsp;<button class="btn btn-danger navbar-btn">Déconnexion</button>
+      <button *ngIf="this.mcService.getType()=='1'" [routerLink]="['/panierpage']" class="btn btn-info navbar-btn">Panier</button>
+      <button *ngIf="this.mcService.getType()=='1'" [routerLink]="['/membrepage']" class="btn btn-success navbar-btn">
+        {{this.mcService.getMembre().username}}
+      </button>
+      <button *ngIf="this.mcService.getType()=='1'" (click)="deconnecter()" class="btn btn-danger navbar-btn">
+        Déconnexion
+      </button>
+      <button *ngIf="this.mcService.getType()=='0'" [routerLink]="['/connectionpage']" class="btn btn-success navbar-btn">
+        Connexion
+      </button>
+
     </div>
   </div>
 </nav>

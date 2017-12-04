@@ -24,11 +24,12 @@ import {MembreManagerService} from './membre-manager.service';
 import { PagePayementComponent } from './page-payement/page-payement.component';
 import {ReservationEnCoursManagerService} from "./reservation-en-cours-manager.service";
 import { PageReservEnCoursComponent } from './page-reserv-en-cours/page-reserv-en-cours.component';
-import { PageConnectionComponent } from './page-connection/page-connection.component';
 import {TokenManagerService} from "./token-manager.service";
 import {TokenInterceptor} from "./token-interceptor";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {MembreConnecteService} from "./membre-connecte.service";
+import {PageConnectionComponent} from "./page-connection/page-connection.component";
+import {FilterNomJvPipe} from "./filter-nom-jv.pipe";
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import {MembreConnecteService} from "./membre-connecte.service";
     PageMembreComponent,
     PagePayementComponent,
     PageReservEnCoursComponent,
-    PageConnectionComponent
+    PageConnectionComponent,
+    FilterNomJvPipe
   ],
   imports: [
     BrowserModule,

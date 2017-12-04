@@ -1,0 +1,7 @@
+<h1>Connexion</h1>
+
+<form #formulaire="ngForm" (submit)="connecter()">
+  Username : <input type="text" name="username" [(ngModel)]="username" required><br/>
+  Password : <input type="text" name="password" [(ngModel)]="password" required><br/><br/>
+
+  <input type="submit" value="Se connecter" [disabled]="!formulaire.form.valid">

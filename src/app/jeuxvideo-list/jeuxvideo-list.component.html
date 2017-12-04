@@ -77,7 +77,7 @@
     </ul>
   </div>
   <div class="col-xs-12 col-sm-3" id="myScrollspy" [hidden]="newInnerWidth<768" >
-      <ul class="nav nav-pills nav-stacked" >
+      <ul class="nav nav-pills nav-stacked"  *ngIf="this.mcService.getType()=='1'">
         <li class="active">
           <H1>Panier &nbsp;<img height ="26" width ="30" src="https://img15.hostingpics.net/pics/348709caddy.png"/></H1> <br/>
           Nombre d'articles : {{nombrePanier}}<br/>
@@ -85,9 +85,14 @@
           <input type ="submit" [routerLink]="['/panierpage']" name="voirPanier" value="Voir panier" >
         </li>
       </ul>
+    <ul class="nav nav-pills nav-stacked"  *ngIf="this.mcService.getType()=='0'">
+      <li class="active">
+        <app-page-connection></app-page-connection>
+      </li>
+    </ul>
   </div>
 
-  <nav id="panier" class="col-xs-12 col-sm-2 panier"  style="background-color : beige;padding:20px;" [hidden]="newInnerWidth>767">
+  <nav id="panier" class="col-xs-12 col-sm-2 panier"  style="background-color : beige;padding:20px;" [hidden]="newInnerWidth>767" *ngIf="this.mcService.getType()=='1'">
     <H1>Panier&nbsp;<img height ="26" width ="30" src="https://img15.hostingpics.net/pics/348709caddy.png"/></H1>
     Nombre d'articles : {{nombrePanier}}<br/>
     Sous-total : {{prixPanier}}€<br/><br/>

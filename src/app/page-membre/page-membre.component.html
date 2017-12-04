@@ -1,16 +1,56 @@
 <h1>Créer un Membre</h1>
 
 <form #formulaire="ngForm" (submit)="createMembre()">
-  Username : <input type="text" name="username" [(ngModel)]="username" required > <br/>
-  Password : <input type="text" name="password" [(ngModel)]="password" required><br/>
-  Nom : <input type="text" name="nom" [(ngModel)]="nom" required><br/>
-  Prénom : <input type="text" name="prenom" [(ngModel)]="prenom" required><br/>
-  Date de naissance : <input type="text" name="dateDeNaissance" [(ngModel)]="dateDeNaissance" required><br/>
-  Email : <input type="text" name="email" [(ngModel)]="email" required><br/>
-  Téléphone : <input type="text" name="tel" [(ngModel)]="tel" required><br/>
-  Localité : <input type="text" name="localite" [(ngModel)]="localite" required><br/>
-  Code postal : <input type="number" name="cp" step="1" [(ngModel)]="cp" required><br/>
-  Adresse : <input type="text" name="adresse" [(ngModel)]="adresse" required><br/>
+
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text" placeholder="Username" class="form-control" required="">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input id="password" name="password" type="text" placeholder="Password" class="form-control input-md" required="">
+  </div>
+
+  <div class="form-group">
+    <label for="nom">Nom</label>
+    <input id="nom" name="nom" type="text" placeholder="Nom" class="form-control input-md" required="">
+  </div>
+
+  <div class="form-group">
+    <label for="prenom">Prénom</label>
+    <div class="col-md-4">
+      <input id="prenom" name="prenom" type="text" placeholder="Prénom" class="form-control input-md" required="">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="date">Date de naissance</label>
+    <div class="col-md-4">
+      <input id="date" name="date" type="text" placeholder="Date de naissance" class="form-control input-md" required="">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="email">Email</label>
+    <div class="col-md-4">
+      <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" required="">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="tel">Téléphone</label>
+    <div class="col-md-4">
+      <input id="tel" name="tel" type="text" placeholder="Téléphone" class="form-control input-md" required="">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="localite">Localité</label>
+    <div class="col-md-4">
+      <input id="localite" name="localite" type="text" placeholder="Localité" class="form-control input-md" required="">
+    </div>
+  </div>
 
   <input type="submit" value="Créer le membre !" [disabled]="!formulaire.form.valid">
 
