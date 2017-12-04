@@ -16,7 +16,7 @@ export class CreerJeuxvideoComponent implements OnInit {
   private tmpSortie: string;
   private tmpGenres: string;
   private tmpTheme: string;
-  private tmpPrix: number = 0.00;
+  private tmpPrix: number;
   private tmpDescription: string;
   private tmpUrlImage: string;
   private tmpStock: number;

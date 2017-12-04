@@ -18,6 +18,7 @@
     </form>
   </div>
 </nav>-->
+<body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-header">
     <img src="https://img15.hostingpics.net/pics/851966ViAl2.png" class="navbar-brand" height="50px">
@@ -35,12 +36,14 @@
       <li><a [routerLink]="['/adminpage']">Page Admin</a></li>
       <li><a [routerLink]="['/membrepage']">Membre</a></li>
       <li><a [routerLink]="['/reservationencourspage']">Reservation</a></li>
+
     </ul>
     <div class="navbar-header navbar-right">
       <p class="navbar-text">
         <a [routerLink]="['/panierpage']" class="navbar-link">Panier</a> |
         <a [routerLink]="['/connectionpage']"class="navbar-link">Username</a>
       </p>
+      &nbsp;<button class="btn btn-danger navbar-btn">Déconnexion</button>
     </div>
   </div>
 </nav>
@@ -51,3 +54,4 @@
 <router-outlet></router-outlet>
 <!--<app-jeuxvideo-list>Chargement...</app-jeuxvideo-list>-->
 
+</body>

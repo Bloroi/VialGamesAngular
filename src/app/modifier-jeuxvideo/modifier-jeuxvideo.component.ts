@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {Jeuxvideo} from '../jeuxvideo';
 import {JeuxvideoManagerService} from '../jeuxvideo-manager.service';
 
@@ -10,6 +10,7 @@ import {JeuxvideoManagerService} from '../jeuxvideo-manager.service';
 export class ModifierJeuxvideoComponent implements OnInit {
 
   private jvs: Jeuxvideo[] = [];
+  private newInnerWidth = window.innerWidth;
 
   @Output() private jvsChange: EventEmitter<Jeuxvideo[]> = new EventEmitter();
 
@@ -17,6 +18,11 @@ export class ModifierJeuxvideoComponent implements OnInit {
 
   ngOnInit() {
     this.jvService.currentList.subscribe(jvs => this.jvs = jvs);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.newInnerWidth = event.target.innerWidth;
   }
 
 
