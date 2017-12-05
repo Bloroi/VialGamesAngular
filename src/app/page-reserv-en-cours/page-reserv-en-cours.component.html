@@ -1,8 +1,31 @@
 <h1>Vos réservations</h1>
-<div *ngFor="let reserv of listeRe; index as i;">
-  <div class="row top-buffer"  style=" background-color:blanchedalmond">
-      <strong>Date de reservation :</strong> {{reserv.dateReservation}} <br/>
-      <strong>Date de Livraison :</strong>  {{reserv.dateLivraison}}<br/>
-      <strong>-------------------</strong>
-  </div>
+<div class="row top-buffer"  style=" background-color:blanchedalmond">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Article</th>
+      <th>Plateforme</th>
+      <th>Date Res.</th>
+      <th>Date Livr. Prévue</th>
+      <th>Prix achat €</th>
+      <th>Etat livr.</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<tr *ngFor="let reserv of listeRe; index as i;">
+
+
+  <td>{{reserv.jeuxvideo.nom}}</td>
+  <td>{{reserv.jeuxvideo.types}}</td>
+  <td>{{reserv.dateReservation}}</td>
+  <td>{{reserv.dateLivraison}}</td>
+  <td>{{reserv.prixAchat}}</td>
+  <td>{{reserv.etat}}</td>
+
+  </tr>
+  </tbody>
+</table>
 </div>
+<!--
+<div class="row top-buffer"  style=" background-color:blanchedalmond">-->

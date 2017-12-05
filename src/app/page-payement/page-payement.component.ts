@@ -71,6 +71,7 @@ export class PagePayementComponent implements OnInit {
       tmpRf.prixAchat = jv.prix;
       tmpRf.idMembre = this.mcService.getMembre().id;
       tmpRf.idJeuVideo = jv.id;
+      alert(tmpRf);
       this.listeRe.push(tmpRf);
       this.rfService.createRE(tmpRf).subscribe(re => tmpRf.idReservation = ReservationEnCours.fromJSON(re).idReservation);
       this.jvService.changePanierJv([]);

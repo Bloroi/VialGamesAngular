@@ -17,7 +17,7 @@ export class PageReservEnCoursComponent implements OnInit {
   constructor(public reService: ReservationEnCoursManagerService, public mcService: MembreConnecteService) {}
 
   ngOnInit( ) {
-    this.reService.get(1, this.mcService.getMembre().id).subscribe(res => {
+    this.reService.getReservMembre( this.mcService.getMembre().id).subscribe(res => {
       this.listeRe = ReservationEnCours.fromJSONs(res);
     });
   }

@@ -21,6 +21,10 @@ export class ReservationEnCoursManagerService {
     return this.http.get("http://localhost:56469/api/ReservationEnCours?type="+type+"&id="+idMembre);
   }
 
+  public getReservMembre(idMembre : number): Observable<ReservationEnCours[]>{
+    return this.http.get("http://localhost:56469/api/ReservationEnCours?idMembre=" + idMembre);
+  }
+
   public getAllRE(): Observable<ReservationEnCours[]>{
     return this.http.get("http://localhost:56469/api/ReservationEnCours");
   }
