@@ -1,9 +1,30 @@
 <hr>
 
+<div class="well well-sm">
+<!--
+  <span [hidden]="newInnerWidth<768">
+    <input type="radio" name="typeFilterprix" [value]="0" [(ngModel)]="typeFilterPrix"> Du + récent
+    <input type="radio" name="typeFilterPrix" [value]="1" [(ngModel)]="typeFilterPrix"> Croissant
+    <input type="radio" name="typeFilterprix" [value]="2" [(ngModel)]="typeFilterPrix"> Décroissant
+  </span>-->
+ <span>
+   <span [hidden]="newInnerWidth<768">Trier par : </span>
 
+   <select class=form-control [(ngModel)]="typeFilterPrix">
+     <option value="0" >Du + récent</option>
+     <option value="1" >Prix croissant</option>
+     <option value="2" >Prix décroissant</option>
+   </select>
+  </span>
+  &nbsp;
+  <input type="text" name ="searchFilter" class="form-control" placeholder="Rech..." [(ngModel)]="searchFilter"/>&nbsp;&nbsp;<i class="glyphicon glyphicon-search"></i>
+
+
+</div>
+  <!--
 <nav class="navbar navbar-inverse">
   <div >
-    <button type="button" style = 'background-color: black' class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <!--Problème les deux listes sont connectées -->
+    <button type="button" style = 'background-color: black' class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -15,7 +36,7 @@
       <li><a class="inactiveLink"><input type="radio" name="typeFilterPrix" [value]="1" [(ngModel)]="typeFilterPrix"> Croissant</a></li>
       <li><a class="inactiveLink"><input type="radio" name="typeFilterprix" [value]="2" [(ngModel)]="typeFilterPrix"> Décroissant</a></li>
     </ul>
-    <!--
+
     <form class="navbar-form navbar-left">
       <form class="example-form">
       <mat-form-field class="example-full-width">
@@ -28,7 +49,7 @@
       </mat-form-field>
       </form>
     </form>
--->
+
     <form class="navbar-form navbar-left">
       <div class="form-group">
         <input type="text" name ="searchFilter" class="form-control" placeholder="Search" [(ngModel)]="searchFilter"/>
@@ -36,11 +57,16 @@
       <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
     </form>
   </div>
-</nav>
+</nav>-->
 <ul class="nav nav-pills nav-stacked green" style ="{overflow:auto;}" [hidden]="newInnerWidth>767" data-spy="affix"  data-offset-top="150">
-  <li class="active"><a href="#panier"  > <span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true" ></span>Panier</a></li>
+  <li class="active">
+    <a *ngIf="this.mcService.getType()=='1'"  href="#panier"  >
+    <span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true" ></span>Panier</a>
+    <a *ngIf="this.mcService.getType()=='0'"  href="#panier">
+    <span *ngIf="this.mcService.getType()=='0'"  style="margin-right:20px" class="glyphicon glyphicon-question-sign" aria-hidden="true" ></span>Se connecter ?</a>
+  </li>
 </ul>
-<hr><br/>
+<br/>
 
 <div class="container">
 <div class="row" >
@@ -52,12 +78,12 @@
         <img  src = "{{jv.urlImage}}"  />
 
         <div class="info">
-         <span [hidden]="newInnerWidth>767" >
+         <span [hidden]="newInnerWidth>767" *ngIf="this.mcService.getType()=='1'" >
           <button  class="btn btn-success" (click)="addPanier(jv)">
             <span style="margin-right:10px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
             Ajouter au panier</button><br/>
         </span>
-          <strong>Nom :</strong> {{jv.nom}}<span [hidden]="newInnerWidth<768" style ="{float : right}"><button  class="btn btn-success" style="float:right;" (click)="addPanier(jv)">
+          <strong>Nom :</strong> {{jv.nom}}<span  [hidden]="newInnerWidth<768" style ="{float : right}"><button *ngIf="this.mcService.getType()=='1'"  class="btn btn-success" style="float:right;" (click)="addPanier(jv)">
           <span style="margin-right:10px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
           Ajouter au panier</button></span><br/>
           <strong>Editeur :</strong>  {{jv.editeur}}<br/>
@@ -92,11 +118,17 @@
     </ul>
   </div>
 
-  <nav id="panier" class="col-xs-12 col-sm-2 panier"  style="background-color : beige;padding:20px;" [hidden]="newInnerWidth>767" *ngIf="this.mcService.getType()=='1'">
-    <H1>Panier&nbsp;<img height ="26" width ="30" src="https://img15.hostingpics.net/pics/348709caddy.png"/></H1>
-    Nombre d'articles : {{nombrePanier}}<br/>
-    Sous-total : {{prixPanier}}€<br/><br/>
-    <input type ="submit" [routerLink]="['/panierpage']" name="voirPanier" value="Voir panier" >
+  <nav id="panier" class="col-xs-12 col-sm-2 panier"  style="background-color : beige;padding:20px;" [hidden]="newInnerWidth>767" >
+    <div *ngIf="this.mcService.getType()=='1'">
+      <H1>Panier&nbsp;<img height ="26" width ="30" src="https://img15.hostingpics.net/pics/348709caddy.png"/></H1>
+      Nombre d'articles : {{nombrePanier}}<br/>
+      Sous-total : {{prixPanier}}€<br/><br/>
+      <input type ="submit" [routerLink]="['/panierpage']" name="voirPanier" value="Voir panier" >
+    </div>
+    <div *ngIf="this.mcService.getType()=='0'">
+      <app-page-connection></app-page-connection>
+    </div>
   </nav>
+
 </div>
 </div>

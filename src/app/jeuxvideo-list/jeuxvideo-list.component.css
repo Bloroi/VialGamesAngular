@@ -29,6 +29,14 @@ body {
   color : white;
   background-color: #47a447;
   border-color: #398439;
+  font-size: 1.2em;
+}
+
+.form-control{
+  font-size: 1.2em;
+  color: #080808;
+  display: inline;
+  max-width:150px;
 }
 
 
@@ -37,6 +45,7 @@ body {
   font-family: 'Lato', sans-serif;
   margin: 0px;
   padding: 0px;
+  font-size: 0.8em;
 }
 .event-list > li {
   background-color: rgb(255, 255, 255);
@@ -80,8 +89,6 @@ body {
   display: table-cell;
   cursor: pointer;
   color: rgb(30, 30, 30);
-  font-size: 11pt;
-  font-weight: 300;
   padding: 3px 0px;
 }
 .event-list > li > .info > ul > li > a {
@@ -121,6 +128,19 @@ body {
   background-color: rgb(221, 75, 57) !important;
 }
 
+@media (max-width: 767px) {
+  .event-list {
+    font-size: 1.4em;
+
+  }
+  button{
+    font-size: 1.2em;
+  }
+}
+
+
+
+
 @media (min-width: 768px) {
 
   ul.nav-pills {
@@ -130,6 +150,10 @@ body {
     margin-right: 10px;
     box-shadow: 0px 0px 5px rgb(51, 51, 51);
     box-shadow: 0px 0px 5px rgba(51, 51,51,0.7);
+  }
+
+  .event-list {
+    font-size: 1.2em;
   }
 
   .event-list > li {
@@ -154,6 +178,14 @@ body {
     position: relative;
     text-align: left;
     margin: 10px 10px 0px 10px;
+  }
+
+}
+
+
+@media (min-width: 1280px) {
+  .event-list {
+    font-size: 1.0em;
   }
 
 }

@@ -2,12 +2,16 @@ export class ReservationEnCours {
   private _idReservation: string;
   private _dateReservation: string;
   private _dateLivraison: string;
+  private _prixAchat: number;
+  private _etat: boolean;
   private _idMembre: number;
   private _idJeuVideo: number;
 
-  constructor(dateReservation: string = "unknown", dateLivraison: string = "unknown", idMembre: number = 0, idJeuVideo: number = 0) {
+  constructor(dateReservation: string = "unknown", dateLivraison: string = "unknown", prixAchat: number = 0.00, etat: boolean = true, idMembre: number = 0, idJeuVideo: number = 0) {
     this._dateReservation = dateReservation;
     this._dateLivraison = dateLivraison;
+    this._prixAchat = prixAchat;
+    this._etat = etat;
     this._idMembre = idMembre;
     this._idJeuVideo = idJeuVideo;
   }
@@ -36,6 +40,22 @@ export class ReservationEnCours {
     this._dateLivraison = value;
   }
 
+  get prixAchat(): number {
+    return this._prixAchat;
+  }
+
+  set prixAchat(value: number) {
+    this._prixAchat = value;
+  }
+
+  get etat(): boolean {
+    return this._etat;
+  }
+
+  set etat(value: boolean) {
+    this._etat = value;
+  }
+
   get idMembre(): number {
     return this._idMembre;
   }
@@ -53,7 +73,7 @@ export class ReservationEnCours {
   }
 
   public toString(): string {
-    return this._idReservation+" "+this._dateReservation+" "+this._dateLivraison+" "+this._idMembre+" "+this._idJeuVideo;
+    return this._idReservation+" "+this._dateReservation+" "+this._dateLivraison+" "+this._etat+" "+this._prixAchat+" "+this._idMembre+" "+this._idJeuVideo;
   }
 
   public static fromJSON(rawJv:any): ReservationEnCours{
@@ -61,6 +81,8 @@ export class ReservationEnCours {
     tmpRF.idReservation = rawJv["IdReservation"];
     tmpRF.dateReservation = rawJv["DateReservation"];
     tmpRF.dateLivraison = rawJv["DateLivraison"];
+    tmpRF.prixAchat = rawJv["PrixAchat"];
+    tmpRF.etat = rawJv["Etat"];
     tmpRF.idMembre = rawJv["IdMembre"];
     tmpRF.idJeuVideo = rawJv["IdJeuVideo"];
     return tmpRF;
@@ -78,6 +100,8 @@ export class ReservationEnCours {
       "IdReservation": this.idReservation,
       "DateReservation":this.dateReservation,
       "DateLivraison":this.dateLivraison,
+      "PrixAchat":this.prixAchat,
+      "Etat":this.etat,
       "IdMembre":this.idMembre,
       "IdJeuVideo":this.idJeuVideo,
     };

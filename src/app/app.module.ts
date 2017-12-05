@@ -30,6 +30,7 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {MembreConnecteService} from "./membre-connecte.service";
 import {PageConnectionComponent} from "./page-connection/page-connection.component";
 import {FilterNomJvPipe} from "./filter-nom-jv.pipe";
+import { ModifierMagReservationencoursComponent } from './modifier-mag-reservationencours/modifier-mag-reservationencours.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import {FilterNomJvPipe} from "./filter-nom-jv.pipe";
     PagePayementComponent,
     PageReservEnCoursComponent,
     PageConnectionComponent,
-    FilterNomJvPipe
+    FilterNomJvPipe,
+    ModifierMagReservationencoursComponent
   ],
   imports: [
     BrowserModule,
