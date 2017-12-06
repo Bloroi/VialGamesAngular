@@ -1,6 +1,6 @@
 <h1>Payement:</h1>
 
-<form #formulaire="ngForm">
+<form #formulaire="ngForm" (submit)="payer()">
   <div class="form-group owner">
     <label for="owner">Owner</label>
     <input type="text" class="form-control" id="owner">
@@ -11,7 +11,7 @@
   </div>
   <div class="form-group" id="card-number-field">
     <label for="cardNumber">Card Number</label>
-    <input type="text" class="form-control" id="cardNumber">
+    <input type="number" class="form-control" id="cardNumber" [(ngModel)]="cardNum" [ngModelOptions]="{standalone: true}">
   </div>
   <div class="form-group" id="expiration-date">
     <label>Expiration Date</label>
@@ -42,6 +42,6 @@
     <img src="https://support.tyroola.com.au/hc/article_attachments/115015789363/credit_card.jpg" width="180" height="50"id="visa">
   </div>
   <div class="form-group" id="pay-now">
-    <input type="submit" value ="Confirm" (click)="payer()">
+    <input type="submit" class="btn btn-default" value="S'inscrire" [disabled]="!formulaire.form.valid">
   </div>
 </form>

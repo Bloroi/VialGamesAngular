@@ -2,56 +2,47 @@
 
 <form #formulaire="ngForm" (submit)="createMembre()">
 
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input id="username" name="username" type="text" placeholder="Username" class="form-control" required="">
-  </div>
+  <div class="row" style="margin-bottom:15px;">
+    <div class="contact-section" class="col-xs-3">
+      <div>
+        <div class={{getUsernameValidity()}}>
+          <label>Username</label>
+          <input type="text" name ="username" class="form-control" [(ngModel)]="username" required>
+          <!--<span class="glyphicon glyphicon-remove form-control-feedback">-->
+        </div>
 
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input id="password" name="password" type="text" placeholder="Password" class="form-control input-md" required="">
-  </div>
+        <label>Password</label>
+        <input type="password" name ="password" class="form-control" [(ngModel)]="password" required>
 
-  <div class="form-group">
-    <label for="nom">Nom</label>
-    <input id="nom" name="nom" type="text" placeholder="Nom" class="form-control input-md" required="">
-  </div>
+        <label>Nom</label>
+        <input type="text" name ="nom" class="form-control" [(ngModel)]="nom" required>
 
-  <div class="form-group">
-    <label for="prenom">Prénom</label>
-    <div class="col-md-4">
-      <input id="prenom" name="prenom" type="text" placeholder="Prénom" class="form-control input-md" required="">
+        <label>Prénom</label>
+        <input type="text" name ="prenom" class="form-control" [(ngModel)]="prenom" required>
+
+        <label>Date de naissance</label>
+        <input type="date" name ="dateDeNaissance" class="form-control" [(ngModel)]="dateDeNaissance" required>
+      </div>
+      <div>
+        <div class={{getEmailValidity()}}>
+          <label>Email</label>
+          <input type="text" name ="email" class="form-control" [(ngModel)]="email" required>
+        </div>
+
+        <label>Téléphone</label>
+        <input type="text" name ="tel" class="form-control" [(ngModel)]="tel" required>
+
+        <label>Localité</label>
+        <input type="text" name ="localite" class="form-control" [(ngModel)]="localite" required>
+
+        <label>Code postal</label>
+        <input type="number" name ="cp" class="form-control" [(ngModel)]="cp" required>
+
+        <label>Adresse</label>
+        <input type="text" name ="adresse" class="form-control" [(ngModel)]="adresse" required>
+      </div>
     </div>
   </div>
-
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="date">Date de naissance</label>
-    <div class="col-md-4">
-      <input id="date" name="date" type="text" placeholder="Date de naissance" class="form-control input-md" required="">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="email">Email</label>
-    <div class="col-md-4">
-      <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" required="">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="tel">Téléphone</label>
-    <div class="col-md-4">
-      <input id="tel" name="tel" type="text" placeholder="Téléphone" class="form-control input-md" required="">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="localite">Localité</label>
-    <div class="col-md-4">
-      <input id="localite" name="localite" type="text" placeholder="Localité" class="form-control input-md" required="">
-    </div>
-  </div>
-
-  <input type="submit" value="Créer le membre !" [disabled]="!formulaire.form.valid">
+  <input type="submit" class="btn btn-default" value="S'inscrire" [disabled]="!formulaire.form.valid">
 
 </form>

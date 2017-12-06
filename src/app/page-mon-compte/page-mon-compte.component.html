@@ -1,0 +1,38 @@
+<h1>Mon Compte</h1>
+
+<form #formulaire="ngForm" (submit)="updateMembre()">
+
+  <div class="row" style="margin-bottom:15px;">
+    <div class="contact-section" class="col-xs-3">
+      <div>
+        <label>Username</label>
+        <input type="text" name ="username" class="form-control" [(ngModel)]="username" (blur)="updateMembre()" required>
+
+        <label>Nom</label>
+        <input type="text" name ="nom" class="form-control" [(ngModel)]="nom" (blur)="updateMembre()" required>
+
+        <label>Prénom</label>
+        <input type="text" name ="prenom" class="form-control" [(ngModel)]="prenom" (blur)="updateMembre()" required>
+
+        <label>Date de naissance</label>
+        <input type="date" name ="dateDeNaissance" class="form-control" [(ngModel)]="dateDeNaissance" (blur)="updateMembre()" required>
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="text" name ="email" class="form-control" [(ngModel)]="email" (blur)="updateMembre()" required>
+
+        <label>Téléphone</label>
+        <input type="text" name ="tel" class="form-control" [(ngModel)]="tel" (blur)="updateMembre()" required>
+
+        <label>Localité</label>
+        <input type="text" name ="localite" class="form-control" [(ngModel)]="localite" (blur)="updateMembre()" required>
+
+        <label>Code postal</label>
+        <input type="number" name ="cp" class="form-control" [(ngModel)]="cp" (blur)="updateMembre()" required>
+
+        <label>Adresse</label>
+        <input type="text" name ="adresse" class="form-control" [(ngModel)]="adresse" (blur)="updateMembre()" required>
+      </div>
+    </div>
+  </div>
+</form>

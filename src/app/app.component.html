@@ -39,8 +39,8 @@
     </ul>
     <div class="navbar-header navbar-right">
       <button *ngIf="this.mcService.getType()=='1'" [routerLink]="['/panierpage']" class="btn btn-info navbar-btn">Panier</button>
-      <button *ngIf="this.mcService.getType()=='1'" [routerLink]="['/membrepage']" class="btn btn-success navbar-btn">
-        {{this.mcService.getMembre().username}}
+      <button *ngIf="this.mcService.getType()=='1'" [routerLink]="['/moncomptepage']" class="btn btn-success navbar-btn">
+        blabla
       </button>
       <button *ngIf="this.mcService.getType()=='1'" (click)="deconnecter()" class="btn btn-danger navbar-btn">
         Déconnexion

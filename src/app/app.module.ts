@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { JeuxvideoListComponent } from './jeuxvideo-list/jeuxvideo-list.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JeuxvideoManagerService} from './jeuxvideo-manager.service';
 import {AppRoutingModule} from './app-routing.module';
 import { AccueilComponent } from './accueil/accueil.component';
@@ -30,6 +30,7 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {MembreConnecteService} from "./membre-connecte.service";
 import {PageConnectionComponent} from "./page-connection/page-connection.component";
 import {FilterNomJvPipe} from "./filter-nom-jv.pipe";
+import { PageMonCompteComponent } from './page-mon-compte/page-mon-compte.component';
 
 
 @NgModule({
@@ -51,12 +52,14 @@ import {FilterNomJvPipe} from "./filter-nom-jv.pipe";
     PagePayementComponent,
     PageReservEnCoursComponent,
     PageConnectionComponent,
-    FilterNomJvPipe
+    FilterNomJvPipe,
+    PageMonCompteComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}, JeuxvideoManagerService, MagasinierManagerService, AdministrateurManagerService, MembreManagerService,
