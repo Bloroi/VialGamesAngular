@@ -35,6 +35,7 @@
       <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/magpage']">Magasiniers</a></li>
       <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/adminpage']">Page Admin</a></li>
       <li *ngIf="this.mcService.getType()=='1'"><a [routerLink]="['/reservationencourspage']">Reservation</a></li>
+      <li *ngIf="this.mcService.getType()=='3'"><a [routerLink]="['/reservationencoursMag']">Gérer les réservations</a></li>
 
     </ul>
     <div class="navbar-header navbar-right">

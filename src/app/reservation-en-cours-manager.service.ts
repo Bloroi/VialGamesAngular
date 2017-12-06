@@ -39,8 +39,8 @@ export class ReservationEnCoursManagerService {
     });
   }
 
-  public updateRE(m : ReservationEnCours) : Observable<any>{
-    return this.http.put("http://localhost:56469/api/reservationEnCours", m.getCleanDataForSending());
+  public updateRE(r : ReservationEnCours) : Observable<any>{
+    return this.http.put("http://localhost:56469/api/reservationEnCours", r.getCleanDataForSending());
   }
 
   changeListeRE(listeRF: ReservationEnCours[]){

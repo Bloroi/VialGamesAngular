@@ -1,7 +1,7 @@
 import {Membre} from './membre';
 import {Jeuxvideo} from './jeuxvideo';
 
-export class ReservationEnCours {
+export class ReservationFinie {
   private _idReservation: number;
   private _dateReservation: string;
   private _dateLivraison: string;
@@ -102,8 +102,8 @@ export class ReservationEnCours {
     return this._idReservation+" "+this._dateReservation+" "+this._dateLivraison+" "+this._etat+" "+this._prixAchat+" "+this._idMembre+" "+this._idJeuVideo;
   }
 
-  public static fromJSON(rawJv:any): ReservationEnCours{
-    const tmpRF = new ReservationEnCours();
+  public static fromJSON(rawJv:any): ReservationFinie{
+    const tmpRF = new ReservationFinie();
     tmpRF.idReservation = rawJv["IdReservation"];
     tmpRF.dateReservation = rawJv["DateReservation"];
     tmpRF.dateLivraison = rawJv["DateLivraison"];
@@ -111,8 +111,8 @@ export class ReservationEnCours {
     tmpRF.etat = rawJv["Etat"];
     tmpRF.idMembre = rawJv["IdMembre"];
     tmpRF.idJeuVideo = rawJv["IdJeuxVideo"];
-    tmpRF.membre = ReservationEnCours.MemberFromJSON(rawJv["Memb"]);
-    tmpRF.jeuxvideo = ReservationEnCours.JvFromJSON(rawJv["Jv"]);
+    tmpRF.membre = ReservationFinie.MemberFromJSON(rawJv["Memb"]);
+    tmpRF.jeuxvideo = ReservationFinie.JvFromJSON(rawJv["Jv"]);
     return tmpRF;
   }
 
@@ -150,9 +150,9 @@ export class ReservationEnCours {
     return tmpJv;
   }
 
-  public static fromJSONs(rawJvs:any[]): ReservationEnCours[]{
+  public static fromJSONs(rawJvs:any[]): ReservationFinie[]{
     return rawJvs.reduce((mags,currentElement)=>{
-      mags.push(ReservationEnCours.fromJSON(currentElement));
+      mags.push(ReservationFinie.fromJSON(currentElement));
       return mags;
     }, []);
   }
@@ -170,3 +170,4 @@ export class ReservationEnCours {
   }
 
 }
+

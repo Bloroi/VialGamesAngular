@@ -31,6 +31,7 @@ import {MembreConnecteService} from "./membre-connecte.service";
 import {PageConnectionComponent} from "./page-connection/page-connection.component";
 import {FilterNomJvPipe} from "./filter-nom-jv.pipe";
 import { ModifierMagReservationencoursComponent } from './modifier-mag-reservationencours/modifier-mag-reservationencours.component';
+import {ReservationFinieManagerService} from './reservation-finie-manager.service';
 
 
 @NgModule({
@@ -62,7 +63,7 @@ import { ModifierMagReservationencoursComponent } from './modifier-mag-reservati
     AppRoutingModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}, JeuxvideoManagerService, MagasinierManagerService, AdministrateurManagerService, MembreManagerService,
-    ReservationEnCoursManagerService, PagePayementComponent, TokenManagerService, MembreConnecteService],
+    ReservationEnCoursManagerService, PagePayementComponent, TokenManagerService, MembreConnecteService, ReservationFinieManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
