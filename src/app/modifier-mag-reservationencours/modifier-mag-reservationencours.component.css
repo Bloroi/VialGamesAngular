@@ -1,3 +1,83 @@
+/* Add a dark gray background color to the modal header and center text */
+.modal-header, h4, .close {
+
+  color: #fff !important;
+  text-align: center;
+  font-size: 30px;
+}
+
+.rouge{
+  background-color: darkred;
+}
+
+.orange{
+  background-color: darkorange;
+}
+
+.vert{
+  background-color: forestgreen;
+}
+
+.modal-header, .modal-body {
+  padding: 40px 50px;
+}
+
+/*Contact sectiom*/
+.content-header{
+  font-family: 'Oleo Script', cursive;
+  color:#fcc500;
+  font-size: 45px;
+}
+
+.section-content{
+  text-align: center;
+
+}
+#contact{
+
+  font-family: 'Teko', sans-serif;
+  padding : 10px;
+  width: 100%;
+  background: gray; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, dimgray, lightgray); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, dimgray, lightgray); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.contact-section{
+  padding-top: 10px;
+}
+
+
+
+.form-line{
+  border-right: 1px solid #B29999;
+}
+
+.form-group{
+  margin-top: 10px;
+}
+label{
+  font-size: 1.3em;
+  line-height: 1em;
+  font-weight: bold;
+}
+.form-control{
+  font-size: 1.3em;
+  color: #080808;
+}
+textarea.form-control {
+  height: 135px;
+  /* margin-top: px;*/
+}
+
+.submit{
+  font-size: 1.1em;
+  float: right;
+  width: 150px;
+  background-color: transparent;
+  color: #fff;
+
+}
+
 .top-buffer { margin-top:20px; }
 
 .inactiveLink:hover {
@@ -29,14 +109,6 @@ body {
   color : white;
   background-color: #47a447;
   border-color: #398439;
-  font-size: 1.2em;
-}
-
-.form-control{
-  font-size: 1.2em;
-  color: #080808;
-  display: inline;
-  max-width:150px;
 }
 
 
@@ -45,14 +117,12 @@ body {
   font-family: 'Lato', sans-serif;
   margin: 0px;
   padding: 0px;
-  font-size: 0.8em;
 }
 .event-list > li {
   background-color: rgb(255, 255, 255);
   box-shadow: 0px 0px 5px rgb(51, 51, 51);
   box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
   padding: 0px;
-  padding-bottom: 20px;
   margin: 0px 0px 20px;
 }
 
@@ -62,7 +132,7 @@ body {
   padding-left: 25%;
 }
 .event-list > li > .info {
-  padding: 10px 10px 0px 10px;
+  padding: 10px;
   text-align: center;
 }
 .event-list > li > .info > .title {
@@ -89,6 +159,8 @@ body {
   display: table-cell;
   cursor: pointer;
   color: rgb(30, 30, 30);
+  font-size: 11pt;
+  font-weight: 300;
   padding: 3px 0px;
 }
 .event-list > li > .info > ul > li > a {
@@ -128,19 +200,6 @@ body {
   background-color: rgb(221, 75, 57) !important;
 }
 
-@media (max-width: 767px) {
-  .event-list {
-    font-size: 1.4em;
-
-  }
-  button{
-    font-size: 1.2em;
-  }
-}
-
-
-
-
 @media (min-width: 768px) {
 
   ul.nav-pills {
@@ -152,21 +211,16 @@ body {
     box-shadow: 0px 0px 5px rgba(51, 51,51,0.7);
   }
 
-  .event-list {
-    font-size: 1.2em;
-  }
-
   .event-list > li {
     position: relative;
     display: block;
     padding: 0px;
-    overflow: hidden;
   }
 
   .event-list > li > img {
     display: inline-block;
-    width: 200px;
-    height: 300px;
+    width: 190px;
+    height: 280px;
     padding: 0px;
     margin: 0px;
     float : left;
@@ -177,15 +231,11 @@ body {
   .event-list > li > .info {
     position: relative;
     text-align: left;
-    margin: 10px 10px 0px 10px;
+    margin: 10px;
   }
 
-}
-
-
-@media (min-width: 1280px) {
-  .event-list {
-    font-size: 1.0em;
+  .contact-section .col-md-6{
+    width: 50%;
   }
 
 }

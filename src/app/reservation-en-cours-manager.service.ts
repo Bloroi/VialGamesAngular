@@ -21,6 +21,10 @@ export class ReservationEnCoursManagerService {
     return this.http.get("http://localhost:56469/api/ReservationEnCours?type="+type+"&id="+idMembre);
   }
 
+  public getReservMembre(idMembre : number): Observable<ReservationEnCours[]>{
+    return this.http.get("http://localhost:56469/api/ReservationEnCours?idMembre=" + idMembre);
+  }
+
   public getAllRE(): Observable<ReservationEnCours[]>{
     return this.http.get("http://localhost:56469/api/ReservationEnCours");
   }
@@ -35,8 +39,8 @@ export class ReservationEnCoursManagerService {
     });
   }
 
-  public updateRE(m : ReservationEnCours) : Observable<any>{
-    return this.http.put("http://localhost:56469/api/reservationEnCours", m.getCleanDataForSending());
+  public updateRE(r : ReservationEnCours) : Observable<any>{
+    return this.http.put("http://localhost:56469/api/reservationEnCours", r.getCleanDataForSending());
   }
 
   changeListeRE(listeRF: ReservationEnCours[]){

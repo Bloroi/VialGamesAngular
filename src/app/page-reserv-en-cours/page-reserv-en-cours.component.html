@@ -1,7 +1,60 @@
-<div *ngFor="let reserv of listeRe; index as i;">
-  <div class="row top-buffer"  style=" background-color:blanchedalmond">
-      <strong>Date de reservation :</strong> {{reserv.dateReservation}} <br/>
-      <strong>Date de Livraison :</strong>  {{reserv.dateLivraison}}<br/>
-      <strong>-------------------</strong>
-  </div>
+<h1>Vos réservations en cours</h1>
+<div class="container"  style=" background-color:blanchedalmond">
+<table class="table table-hover" style="background-color:white;margin : 10px;">
+  <thead>
+    <tr>
+      <th>Article</th>
+      <th *ngIf="newInnerWidth>767">Plateforme</th>
+      <th *ngIf="newInnerWidth>767">Date Res.</th>
+      <th>Date Livr. Prévue</th>
+      <th>Prix achat €</th>
+      <th>Etat livr.</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<tr *ngFor="let reserv of listeRe; index as i;">
+
+
+  <td>{{reserv.jeuxvideo.nom}}</td>
+  <td *ngIf="newInnerWidth>767">{{reserv.jeuxvideo.types}}</td>
+  <td *ngIf="newInnerWidth>767">{{reserv.dateReservation}}</td>
+  <td>{{reserv.dateLivraison}}</td>
+  <td>{{reserv.prixAchat}}</td>
+  <td>{{reserv.etat}}</td>
+
+  </tr>
+  </tbody>
+</table>
+</div>
+
+<h1>Vos réservations finies</h1>
+
+<div class="container"  style=" background-color:blanchedalmond">
+  <table class="table table-hover" style="background-color:white;margin : 10px;">
+    <thead>
+    <tr>
+      <th>Article</th>
+      <th *ngIf="newInnerWidth>767">Plateforme</th>
+      <th *ngIf="newInnerWidth>767">Date Res.</th>
+      <th>Date Livr. Prévue</th>
+      <th>Prix achat €</th>
+      <th>Etat livr.</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let reserv of listeRf; index as i;">
+
+
+      <td>{{reserv.jeuxvideo.nom}}</td>
+      <td *ngIf="newInnerWidth>767">{{reserv.jeuxvideo.types}}</td>
+      <td *ngIf="newInnerWidth>767">{{reserv.dateReservation}}</td>
+      <td>{{reserv.dateLivraison}}</td>
+      <td>{{reserv.prixAchat}}</td>
+      <td>{{reserv.etat}}</td>
+
+    </tr>
+    </tbody>
+  </table>
 </div>

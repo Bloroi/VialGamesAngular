@@ -131,7 +131,7 @@ export class Membre {
     tmpM.email = rawJv["Email"];
     tmpM.tel = rawJv["Tel"];
     tmpM.localite = rawJv["Localite"];
-    tmpM.cp = rawJv["cp"];
+    tmpM.cp = rawJv["Cp"];
     tmpM.adresse = rawJv["Adresse"];
     return tmpM;
   }

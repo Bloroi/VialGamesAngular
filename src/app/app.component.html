@@ -32,9 +32,10 @@
     <ul class="nav navbar-nav">
       <li class="active"><a [routerLink]="['/']">Accueil</a></li>
       <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/jvpage']">Modifs Jv</a></li>
-      <li *ngIf="this.mcService.getType()=='3'"><a [routerLink]="['/magpage']">Magasiniers</a></li>
+      <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/magpage']">Magasiniers</a></li>
       <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/adminpage']">Page Admin</a></li>
       <li *ngIf="this.mcService.getType()=='1'"><a [routerLink]="['/reservationencourspage']">Reservation</a></li>
+      <li *ngIf="this.mcService.getType()=='3'"><a [routerLink]="['/reservationencoursMag']">Gérer les réservations</a></li>
 
     </ul>
     <div class="navbar-header navbar-right">
@@ -42,7 +43,7 @@
       <button *ngIf="this.mcService.getType()=='1'" [routerLink]="['/moncomptepage']" class="btn btn-success navbar-btn">
         blabla
       </button>
-      <button *ngIf="this.mcService.getType()=='1'" (click)="deconnecter()" class="btn btn-danger navbar-btn">
+      <button *ngIf="this.mcService.getType()!='0'" (click)="deconnecter()" class="btn btn-danger navbar-btn">
         Déconnexion
       </button>
       <button *ngIf="this.mcService.getType()=='0'" [routerLink]="['/connectionpage']" class="btn btn-success navbar-btn">

@@ -1,0 +1,149 @@
+<h1>Réservations à traiter</h1>
+
+
+
+<div class="container">
+
+  <ul class="event-list">
+    <li *ngFor="let r of listeRe ; index as i;">
+
+
+      <section id="contact">
+
+        <div class="row">
+          <div class="contact-section">
+
+            <form>
+              <div class="col-md-6" >
+                <div class="form-group">
+                  <label>Nom du jeuxvideo</label><br/>
+                  <span>{{r.jeuxvideo.nom}}</span>
+                </div>
+                <div class="form-group">
+                  <label>Plateforme</label><br/>
+                  <span>{{r.jeuxvideo.types}}</span>
+                </div>
+                <div class="form-group">
+                  <label>Date de la réservation</label><br/>
+                  <span>{{r.dateReservation}}</span>
+                </div>
+                <div class="form-group">
+                  <label>Infos Client</label><br/>
+                  <span>{{r.membre.nom}}&nbsp; {{r.membre.prenom}}</span>
+                  <span>{{r.membre.adresse}}&nbsp; {{r.membre.cp}}&nbsp; {{r.membre.localite}}</span>
+                </div>
+
+
+              </div>
+              <div class="col-md-6" >
+
+                <div class="form-group">
+                  <label>Date de livraison prévue</label>
+                  <input type="date" name ="dateL" class="form-control" [(ngModel)]="r.dateLivraison"(blur)="updateRes(r)" placeholder="Taper la date de livraison prévue">
+                </div>
+                <div class="form-group">
+                  <label>Prix achat</label>
+                  <input type="number" min="0" name ="prixA" class="form-control" [(ngModel)]="r.prixAchat"(blur)="updateRes(r)" placeholder="Taper le prix du jeu à l'achat">
+                </div>
+                <div class="form-group">
+                  <label>Etat livraison</label>
+                  <input type="text" name ="etat" id="etatLivraison" class="form-control" [(ngModel)]="r.etat"(blur)="updateRes(r)" placeholder="Taper l'état de la commande">
+                </div>
+                <button data-toggle="modal" (click)="supprimerR= i " data-target="#myModal" style="width:32%;" class="btn btn-danger">Supprimer</button> <button (click)="supprimerR= i " data-toggle="modal" data-target="#myModal2" style="width:32%;" class="btn btn-warning">Annuler</button> <button (click)="supprimerR= i " data-toggle="modal" data-target="#myModal3" style="width:32%;" class="btn btn-success">Confirmer</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </section>
+
+    </li>
+
+  </ul>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header rouge">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4><span class="glyphicon glyphicon-remove"></span>Supprimer la commande ?</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <button type="submit" (click)="deleteRes(supprimerR)" class="btn btn-success btn-block" data-dismiss="modal">
+              <span class="glyphicon glyphicon-ok"></span>Supprimer la commande
+            </button>
+              <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal">
+                <span class="glyphicon glyphicon-remove"></span>Retour
+              </button>
+
+          </div>
+        </form>
+  </div>
+</div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header orange">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4><span class="glyphicon glyphicon-remove"></span>Annuler la commande ?</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <button type="submit" (click)="GestionRes(supprimerR,'Annulée')" class="btn btn-success btn-block" data-dismiss="modal">
+              <span class="glyphicon glyphicon-ok"></span>Annuler la commande
+            </button>
+            <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal">
+              <span class="glyphicon glyphicon-remove"></span>Retour
+            </button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal3" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header vert">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4><span class="glyphicon glyphicon-ok"></span>Envoyer la commande ?</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <button type="submit" (click)="GestionRes(supprimerR,'Envoyée')" class="btn btn-success btn-block" data-dismiss="modal">
+              <span class="glyphicon glyphicon-ok"></span>Envoyer
+            </button>
+            <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal">
+              <span class="glyphicon glyphicon-remove"></span>Retour
+            </button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
