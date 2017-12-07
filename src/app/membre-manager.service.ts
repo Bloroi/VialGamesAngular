@@ -14,29 +14,29 @@ export class MembreManagerService {
   constructor(public http: HttpClient) { }
 
   public getAllM(): Observable<Membre[]>{
-    return this.http.get("http://localhost:56469/api/membre");
+    return this.http.get('http://localhost:56469/api/membre');
   }
 
   public get(username: string, password: string): Observable<Membre>{
-    return this.http.get("http://localhost:56469/api/membre?username="+username+"&password="+password);
+    return this.http.get('http://localhost:56469/api/membre?username=' + username + '&password=' + password);
   }
 
-  public checkValidity(username: string, email:string): Observable<number>{
-    return this.http.get("http://localhost:56469/api/membre?+type=0&username="+username+"&email="+email);
+  public checkValidity(username: string, email: string): Observable<number>{
+    return this.http.get('http://localhost:56469/api/membre?+type=0&username=' + username + '&email=' + email);
   }
 
-  public createM(m : Membre) : Observable<Membre>{
-    return this.http.post("http://localhost:56469/api/membre", m.getCleanDataForSending());
+  public createM(m: Membre): Observable<Membre>{
+    return this.http.post('http://localhost:56469/api/membre', m.getCleanDataForSending());
   }
 
-  public deleteM(id:number):Observable<any>{
-    return this.http.delete<string>("http://localhost:56469/api/membre",{
-      params: new HttpParams().set("id",id+'')
+  public deleteM(id: number): Observable<any>{
+    return this.http.delete<string>('http://localhost:56469/api/membre', {
+      params: new HttpParams().set('id', id + '')
     });
   }
 
-  public updateM(m : Membre) : Observable<any>{
-    return this.http.put("http://localhost:56469/api/membre", m.getCleanDataForSending());
+  public updateM(m: Membre): Observable<any>{
+    return this.http.put('http://localhost:56469/api/membre', m.getCleanDataForSending());
   }
 
   changeListeM(listeM: Membre[]){

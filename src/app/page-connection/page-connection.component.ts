@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Membre} from "../membre";
-import {MembreManagerService} from "../membre-manager.service";
-import {TokenManagerService} from "../token-manager.service";
+import {Membre} from '../membre';
+import {MembreManagerService} from '../membre-manager.service';
+import {TokenManagerService} from '../token-manager.service';
 import {Router} from '@angular/router';
-import {MembreConnecteService} from "../membre-connecte.service";
+import {MembreConnecteService} from '../membre-connecte.service';
 
 @Component({
   selector: 'app-page-connection',
@@ -30,13 +30,12 @@ export class PageConnectionComponent implements OnInit {
         alert('Username et Mot de passe invalide.');
       }else {
         localStorage.setItem('token', token[1]);
-        localStorage.setItem('username', this.username);
-        localStorage.setItem('password', this.password);
         localStorage.setItem('type', token[0]);
-        this.mService.get(this.username, this.password).subscribe(m => {
-          this.mcService.setMembre(Membre.fromJSON(m));
-        });
-        this.mcService.setType(token[0]);
+        switch (token[0]){
+          case '1': this.mcService.setMembre(); break;
+          case '2': this.mcService.setAdmin(); break;
+          case '3': this.mcService.setMagasinier(); break;
+        }
         this.router.navigate(['']);
         window.location.reload();
       }

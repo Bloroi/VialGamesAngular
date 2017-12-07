@@ -18,8 +18,7 @@ export class AppComponent {
     localStorage.setItem("type", "0");
     localStorage.setItem("username", "");
     localStorage.setItem("password", "");
-    this.mcService.setType("0");
-    this.mcService.setMembre(null);
+    this.mcService.delMembre();
     this.router.navigate([""]);
   }
 }

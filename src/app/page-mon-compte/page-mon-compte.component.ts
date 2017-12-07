@@ -9,7 +9,7 @@ import {Membre} from "../membre";
   styleUrls: ['./page-mon-compte.component.css']
 })
 export class PageMonCompteComponent implements OnInit {
-
+  private id: number;
   private username: string;
   private password: string;
   private nom: string;
@@ -22,6 +22,11 @@ export class PageMonCompteComponent implements OnInit {
   private adresse: string;
 
   constructor(public mcService: MembreConnecteService, public mService: MembreManagerService){
+    this.mcService.construireMembre();
+  }
+
+  ngOnInit(){
+    this.id = this.mcService.getMembre().id;
     this.username = this.mcService.getMembre().username;
     this.password = this.mcService.getMembre().password;
     this.nom = this.mcService.getMembre().nom;
@@ -34,22 +39,20 @@ export class PageMonCompteComponent implements OnInit {
     this.adresse = this.mcService.getMembre().adresse;
   }
 
-  ngOnInit() {
+  public update(){
+    const m = new Membre();
+    m.id = this.id;
+    m.username = this.username;
+    m.password = this.password;
+    m.nom = this.nom;
+    m.prenom = this.prenom;
+    m.dateDeNaissance = this.dateDeNaissance;
+    m.email = this.email;
+    m.tel = this.tel;
+    m.localite = this.localite;
+    m.cp = this.cp;
+    m.adresse = this.adresse;
+    this.mService.updateM(m).subscribe();
+    this.mcService.updateMembre(m);
   }
-
-  updateMembre(){
-    const tmpM = new Membre();
-    tmpM.username = this.username;
-    tmpM.password = this.password;
-    tmpM.nom = this.nom;
-    tmpM.prenom = this.prenom;
-    tmpM.dateDeNaissance = this.dateDeNaissance;
-    tmpM.email = this.email;
-    tmpM.tel = this.tel;
-    tmpM.localite = this.localite;
-    tmpM.cp = 1111;
-    tmpM.adresse = this.adresse;
-    this.mService.updateM(tmpM).subscribe();
-  }
-
 }

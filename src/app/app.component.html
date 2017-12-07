@@ -41,7 +41,13 @@
     <div class="navbar-header navbar-right">
       <button *ngIf="this.mcService.getType()=='1'" [routerLink]="['/panierpage']" class="btn btn-info navbar-btn">Panier</button>
       <button *ngIf="this.mcService.getType()=='1'" [routerLink]="['/moncomptepage']" class="btn btn-success navbar-btn">
-        blabla
+        {{this.mcService.getMembre().username}}
+      </button>
+      <button *ngIf="this.mcService.getType()=='2'" [routerLink]="['/moncomptepage']" class="btn btn-success navbar-btn">
+        {{this.mcService.getAdmin().username}}
+      </button>
+      <button *ngIf="this.mcService.getType()=='3'" [routerLink]="['/moncomptepage']" class="btn btn-success navbar-btn">
+        {{this.mcService.getMagasinier().username}}
       </button>
       <button *ngIf="this.mcService.getType()!='0'" (click)="deconnecter()" class="btn btn-danger navbar-btn">
         Déconnexion
