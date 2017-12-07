@@ -9,6 +9,7 @@ import {PageMembreComponent} from './page-membre/page-membre.component';
 import {PagePayementComponent} from "./page-payement/page-payement.component";
 import {PageReservEnCoursComponent} from "./page-reserv-en-cours/page-reserv-en-cours.component";
 import {PageConnectionComponent} from "./page-connection/page-connection.component";
+import {ModifierMagReservationencoursComponent} from './modifier-mag-reservationencours/modifier-mag-reservationencours.component';
 import {PageMonCompteComponent} from "./page-mon-compte/page-mon-compte.component";
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'payementpage', component: PagePayementComponent},
   {path: 'reservationencourspage', component: PageReservEnCoursComponent},
   {path: 'connectionpage', component: PageConnectionComponent},
+  {path: 'reservationencoursMag', component: ModifierMagReservationencoursComponent},
   {path: 'moncomptepage', component: PageMonCompteComponent}
 ];
 

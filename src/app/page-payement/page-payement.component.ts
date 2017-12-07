@@ -75,16 +75,23 @@ export class PagePayementComponent implements OnInit {
           }
         }
         tmpRf.dateLivraison = yyyy + "-" + mm + "-" + dd;
+        tmpRf.prixAchat = jv.prix;
         tmpRf.idMembre = this.mcService.getMembre().id;
         tmpRf.idJeuVideo = jv.id;
         this.listeRe.push(tmpRf);
         this.rfService.createRE(tmpRf).subscribe(re => tmpRf.idReservation = ReservationEnCours.fromJSON(re).idReservation);
         this.jvService.changePanierJv([]);
+        jv.stock -= 1;
+        this.updateJeuxvideo(jv);
         this.router.navigate([""]);
       }
     }else{
       alert("num invalid");
     }
+  }
+
+  public updateJeuxvideo(jv: Jeuxvideo){
+    this.jvService.updateJv(jv).subscribe();
   }
 
   public getLastNum(){
