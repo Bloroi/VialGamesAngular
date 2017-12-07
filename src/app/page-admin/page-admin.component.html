@@ -1,11 +1,20 @@
-<div>Connecté en tant que : {{admin.username}}</div>
 <hr>
-<h1>Modifier son mot de passe</h1>
+<h1>Modifier le mot de passe</h1>
 <hr>
 
 <form #formulaire="ngForm" (submit)="updateAdmin()">
-  Ancien mdp: <input type="text" name="ancienmdp" [(ngModel)]="vieuxmdp" required > <br/>
-  Nouveau mdp : <input type="text" name="mdp1" [(ngModel)]="nouveaumdp" required><br/>
-  Retapez le mdp : <input type="text" name="mdp2" [(ngModel)]="nouveaumdp2" required><br/><br/>
+  <div class="form-group">
+    <label>Ancien mdp</label><br/>
+    <input type="text" name="ancienmdp" [(ngModel)]="vieuxmdp" placeholder="Ancien mot de passe" required>
+  </div>
+  <div class="form-group">
+    <label>Nouveau mot de passe</label><br/>
+    <input type="text" name="mdp1" [(ngModel)]="nouveaumdp" placeholder="Nouveau mot de passe" required>
+  </div>
+  <div class="form-group">
+    <label>Retaper le mot de passe</label><br/>
+    <input type="text" name="mdp2" [(ngModel)]="nouveaumdp2" placeholder="Retaper le nouveau mdp"required>
+  </div>
 
   <input type="submit" value="Modifier le mdp!" [disabled]="!formulaire.form.valid">
+</form>

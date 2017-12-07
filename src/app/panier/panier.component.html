@@ -1,20 +1,32 @@
-
-<table>
-  <tr>
-    <th><strong>Nom du jeuxvideo</strong></th>
-    <th><strong>Type</strong></th>
-    <th><strong>Prix(EUR)</strong></th>
-    <th>Supprimer</th>
-  </tr>
-<tr *ngFor="let jv of listeJv; index as i;">
-
-  <td >    {{jv.nom}}</td>
-  <td>    {{jv.types}}</td>
-  <td>    {{jv.prix}}</td>
-  <td><input type="submit" value ="X" (click)="deleteJvPanier(i)"></td>
-
-</tr>
-</table>
+<hr>
+<h1>Panier</h1>
+<hr>
+<div *ngIf="listeJv.length >0">
+<div class="container"  style=" background-color:blanchedalmond">
+  <table class="table table-hover" style="background-color:white;margin : 10px;">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Plateforme</th>
+      <th>Prix (€)</th>
+      <th>&nbsp; X &nbsp;</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let jv of listeJv; index as i;">
+      <td >    {{jv.nom}}</td>
+      <td>    {{jv.types}}</td>
+      <td>    {{jv.prix}}</td>
+      <td><input type="submit" class="btn-xs btn-danger" value ="X" style="width:100%;" (click)="deleteJvPanier(i)"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
 <br/>
-<input type="submit" value="Finaliser ma commande" [routerLink]="['/payementpage']" [hidden]="listeJv.length==0"><br/>
+<input type="submit" class="btn btn-default" value="Finaliser ma commande" [routerLink]="['/payementpage']" [hidden]="listeJv.length==0"><br/>
+</div>
+
+<div *ngIf="listeJv.length==0">
+  Votre panier est vide.
+</div>

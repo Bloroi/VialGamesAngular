@@ -33,6 +33,7 @@ import {FilterNomJvPipe} from "./filter-nom-jv.pipe";
 import { ModifierMagReservationencoursComponent } from './modifier-mag-reservationencours/modifier-mag-reservationencours.component';
 import {ReservationFinieManagerService} from './reservation-finie-manager.service';
 import { PageMonCompteComponent } from './page-mon-compte/page-mon-compte.component';
+import { HighlightDirective } from './highlight.directive';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { PageMonCompteComponent } from './page-mon-compte/page-mon-compte.compon
     PageConnectionComponent,
     FilterNomJvPipe,
     ModifierMagReservationencoursComponent,
-    PageMonCompteComponent
+    PageMonCompteComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

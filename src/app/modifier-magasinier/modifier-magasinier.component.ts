@@ -10,6 +10,7 @@ import {MagasinierManagerService} from '../magasinier-manager.service';
 export class ModifierMagasinierComponent implements OnInit {
 
   private mags: Magasinier[] = [];
+  private supprimerR : number;
 
   @Output() private magsChange: EventEmitter<Magasinier[]> = new EventEmitter();
 

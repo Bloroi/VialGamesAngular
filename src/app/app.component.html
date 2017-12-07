@@ -31,11 +31,11 @@
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
       <li class="active"><a [routerLink]="['/']">Accueil</a></li>
-      <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/jvpage']">Modifs Jv</a></li>
-      <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/magpage']">Magasiniers</a></li>
-      <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/adminpage']">Page Admin</a></li>
-      <li *ngIf="this.mcService.getType()=='1'"><a [routerLink]="['/reservationencourspage']">Reservation</a></li>
-      <li *ngIf="this.mcService.getType()=='3'"><a [routerLink]="['/reservationencoursMag']">Gérer les réservations</a></li>
+      <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/jvpage']">Gérer les jeux vidéos</a></li>
+      <li *ngIf="this.mcService.getType()=='3' || this.mcService.getType()=='2' "><a [routerLink]="['/reservationencoursMag']">Gérer les réservations</a></li>
+      <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/magpage']">Gérer les magasiniers</a></li>
+      <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/adminpage']">Config Compte Admin</a></li>
+      <li *ngIf="this.mcService.getType()=='1'"><a [routerLink]="['/reservationencourspage']">Mes Réservations</a></li>
 
     </ul>
     <div class="navbar-header navbar-right">
