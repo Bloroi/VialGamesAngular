@@ -1,4 +1,6 @@
+<hr>
 <h1>Créer un Jeux vidéo</h1>
+<hr>
 
 <div class="container">
 
@@ -14,60 +16,62 @@
 
           <div class="col-md-6" >
 
-
+            <div class="form-group">
               <label>Nom</label>
               <input type="text" name ="nom" class="form-control" [(ngModel)]="tmpNom" placeholder="Taper le nom du jeu" required>
-
-
+            </div>
+            <div class="form-group">
               <label>Editeur</label>
               <input type="text" name ="editeur" class="form-control" [(ngModel)]="tmpEditeur"  placeholder="Taper le nom de l'éditeur" required>
-
-
+            </div>
+            <div class="form-group">
               <label>Types</label>
               <input type="text" name ="types" class="form-control" [(ngModel)]="tmpTypes" placeholder="Taper le(s) type(s) du jeu" required>
-
-
+            </div>
+            <div class="form-group">
               <label>Développeurs</label>
               <input type="text" name ="dev" class="form-control" [(ngModel)]="tmpDeveloppeur" placeholder="Taper le(s) nom(s) du/des développeur(s)" required>
-
-
+            </div>
+            <div class="form-group">
               <label>Sortie</label>
               <input type="text" name ="sortie" class="form-control" [(ngModel)]="tmpSortie" placeholder="Taper la date de sortie (AAAA-MM-JJ)" required>
-
-
+            </div>
+            <div class="form-group">
               <label>Genres</label>
               <input type="text" name ="genres" class="form-control" [(ngModel)]="tmpGenres" placeholder="Taper le(s) genre(s) du jeu" required>
-
+            </div>
+            <div class="form-group">
             <label>Themes</label>
             <input type="text" name ="themes" class="form-control" [(ngModel)]="tmpTheme" placeholder="Taper les(s) thème(s) du jeu" required>
-
+            </div>
           </div>
           <div class="col-md-6">
 
-
+            <div class="form-group">
               <label>Prix</label>
               <input type="number" step="0.01"  name="prix" class="form-control" [(ngModel)]="tmpPrix" placeholder="Taper le prix du jeu" required>
-
-
+            </div>
+            <div class="form-group">
               <label>Url de la jaquette</label>
               <input type="text" name ="url" class="form-control" [(ngModel)]="tmpUrlImage" placeholder="Taper l'url de l'image" required>
-
-
+            </div>
+            <div class="form-group">
               <label>Stock en magasin</label>
               <input type="number" name ="stock" class="form-control" [(ngModel)]="tmpStock" placeholder="Taper le stock du jeu" required>
-
-
+            </div>
+            <div class="form-group">
               <label>Description</label>
               <textarea  class="form-control" name="description" id="description" [(ngModel)]="tmpDescription" placeholder="Taper la description du jeu" required></textarea>
-
+            </div>
+            <div class="form-group">
               <label>Visibilité</label>
               <input type="checkbox" name ="visible" class="form-control" [(ngModel)]="tmpVisible">
-
+            </div>
           </div>
 
       </div>
     </div>
-    <input type="submit" class="btn btn-default" value="Créer le jeuxvideo !" style="text-align: center;"  [disabled]="!formulaire.form.valid">
+    <input type="submit" class="btn btn-default" value="Créer le jeuxvideo !"  [disabled]="!formulaire.form.valid">
   </section>
 
 </form>

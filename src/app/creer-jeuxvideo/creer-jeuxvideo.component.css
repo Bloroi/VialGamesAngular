@@ -1,3 +1,27 @@
+/* Add a dark gray background color to the modal header and center text */
+.modal-header, h4, .close {
+
+  color: #fff !important;
+  text-align: center;
+  font-size: 30px;
+}
+
+.rouge{
+  background-color: darkred;
+}
+
+.orange{
+  background-color: darkorange;
+}
+
+.vert{
+  background-color: forestgreen;
+}
+
+.modal-header, .modal-body {
+  padding: 40px 50px;
+}
+
 /*Contact sectiom*/
 .content-header{
   font-family: 'Oleo Script', cursive;
@@ -23,6 +47,7 @@
 }
 
 
+
 .form-line{
   border-right: 1px solid #B29999;
 }
@@ -33,7 +58,7 @@
 label{
   font-size: 1.3em;
   line-height: 1em;
-  font-weight: normal;
+  font-weight: bold;
 }
 .form-control{
   font-size: 1.3em;
