@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AdministrateurManagerService} from '../administrateur-manager.service';
 import {Administrateur} from '../administrateur';
+import {MembreConnecteService} from "../membre-connecte.service";
 
 @Component({
   selector: 'app-page-admin',
@@ -14,21 +15,10 @@ export class PageAdminComponent implements OnInit {
   private nouveaumdp: string;
   private nouveaumdp2: string;
 
-  @Output() private adminChange: EventEmitter<Administrateur> = new EventEmitter();
-
-  constructor(public adminService: AdministrateurManagerService) { }
+  constructor(public adminService: AdministrateurManagerService, public mcService: MembreConnecteService) { }
 
   ngOnInit() {
-    this.adminService
-      .getAdmin(1)
-      .subscribe(admin => {
-        this.admin = Administrateur.fromJSON(admin);
-        this.emitAdmin();
-      });
-  }
-
-  public emitAdmin(){
-    this.adminChange.next(this.admin);
+    this.admin=this.mcService.getAd();
   }
 
   public updateAdmin(){

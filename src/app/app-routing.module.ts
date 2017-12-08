@@ -6,12 +6,13 @@ import {ManagerMagasinierComponent} from './manager-magasinier/manager-magasinie
 import {PageAdminComponent} from './page-admin/page-admin.component';
 import {PanierComponent} from './panier/panier.component';
 import {PageMembreComponent} from './page-membre/page-membre.component';
-import {PagePayementComponent} from "./page-payement/page-payement.component";
-import {PageReservEnCoursComponent} from "./page-reserv-en-cours/page-reserv-en-cours.component";
-import {PageConnectionComponent} from "./page-connection/page-connection.component";
+import {PagePayementComponent} from './page-payement/page-payement.component';
+import {PageReservEnCoursComponent} from './page-reserv-en-cours/page-reserv-en-cours.component';
+import {PageConnectionComponent} from './page-connection/page-connection.component';
 import {ModifierMagReservationencoursComponent} from './modifier-mag-reservationencours/modifier-mag-reservationencours.component';
-import {PageMonCompteComponent} from "./page-mon-compte/page-mon-compte.component";
-import {PageMembresAdminComponent} from "./page-membres-admin/page-membres-admin.component";
+import {PageMonCompteComponent} from './page-mon-compte/page-mon-compte.component';
+import {PageMembresAdminComponent} from './page-membres-admin/page-membres-admin.component';
+import {ModifMdpMembreComponent} from './modif-mdp-membre/modif-mdp-membre.component';
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'connectionpage', component: PageConnectionComponent},
   {path: 'reservationencoursMag', component: ModifierMagReservationencoursComponent},
   {path: 'moncomptepage', component: PageMonCompteComponent},
-  {path: 'membrespage', component:PageMembresAdminComponent}
+  {path: 'membrespage', component: PageMembresAdminComponent},
+  {path: 'modifmdpmembre', component: ModifMdpMembreComponent}
 ];
 
 @NgModule({

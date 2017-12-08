@@ -38,6 +38,7 @@
       <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/adminpage']">Config Compte Admin</a></li>
       <li *ngIf="this.mcService.getType()=='1'"><a [routerLink]="['/reservationencourspage']">Mes Réservations</a></li>
 
+
     </ul>
     <div class="navbar-header navbar-right">
       <button *ngIf="this.mcService.getType()=='1'" [routerLink]="['/panierpage']" class="btn btn-info navbar-btn">Panier</button>

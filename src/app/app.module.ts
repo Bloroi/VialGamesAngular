@@ -35,6 +35,7 @@ import {ReservationFinieManagerService} from './reservation-finie-manager.servic
 import { PageMonCompteComponent } from './page-mon-compte/page-mon-compte.component';
 import { HighlightDirective } from './highlight.directive';
 import { PageMembresAdminComponent } from './page-membres-admin/page-membres-admin.component';
+import { ModifMdpMembreComponent } from './modif-mdp-membre/modif-mdp-membre.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { PageMembresAdminComponent } from './page-membres-admin/page-membres-adm
     ModifierMagReservationencoursComponent,
     PageMonCompteComponent,
     HighlightDirective,
-    PageMembresAdminComponent
+    PageMembresAdminComponent,
+    ModifMdpMembreComponent
   ],
   imports: [
     BrowserModule,
