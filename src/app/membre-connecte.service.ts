@@ -19,11 +19,13 @@ export class MembreConnecteService {
   // 3 = Magasinier
 
   constructor(public mService: MembreManagerService, public magService: MagasinierManagerService, public adService: AdministrateurManagerService) {
-    this.type = localStorage.getItem('type');
-    switch (localStorage.getItem('type')){
-      case '1': this.construireMembre(); break;
-      case '3': this.construireMag(); break;
-      case '2': this.construireAd(); break;
+    this.type = '0';
+   if (localStorage.getItem('type') === '1') {
+     this.construireMembre();
+   }else if(localStorage.getItem('type') === '2') {
+     this.construireMag();
+   }else if(localStorage.getItem('type') === '3'){
+      this.construireAd();
     }
   }
 
@@ -124,20 +126,20 @@ export class MembreConnecteService {
   public delMembre(){
     this.membreConnecte = null;
     this.type = '0';
-    localStorage.setItem("type", "0");
+    localStorage.setItem('type', '0');
 
   }
 
   public delMag(){
-    this.magasinierConnecte=null;
-    this.type= '0';
-    localStorage.setItem("type", "0");
+    this.magasinierConnecte = null;
+    this.type = '0';
+    localStorage.setItem('type', '0');
   }
 
   public delAd(){
-    this.adminConnecte=null;
-    this.type= '0';
-    localStorage.setItem("type", "0");
+    this.adminConnecte = null;
+    this.type = '0';
+    localStorage.setItem('type', '0');
   }
 
   public getMembre(): Membre{

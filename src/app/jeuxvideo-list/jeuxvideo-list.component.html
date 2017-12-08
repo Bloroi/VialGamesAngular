@@ -122,7 +122,7 @@
       Sous-total : {{prixPanier}}€<br/><br/>
       <input type ="submit" class="btn btn-default" [routerLink]="['/panierpage']" name="voirPanier" value="Voir panier" >
     </div>
-    <div *ngIf="this.mcService.getType()=='0'">
+    <div *ngIf="this.mcService.getType()== null">
       <app-page-connection></app-page-connection>
     </div>
   </nav>

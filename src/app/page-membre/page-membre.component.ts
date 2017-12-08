@@ -1,7 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MembreManagerService} from '../membre-manager.service';
 import {Membre} from '../membre';
-import {FormControl} from "@angular/forms";
+import {FormControl} from '@angular/forms';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-page-membre',
@@ -10,7 +11,6 @@ import {FormControl} from "@angular/forms";
 })
 export class PageMembreComponent implements OnInit {
 
-  private membre: Membre;
   private username: string;
   private password: string;
   private nom: string;
@@ -22,28 +22,59 @@ export class PageMembreComponent implements OnInit {
   private cp: number;
   private adresse: string;
   private mbrs: Membre[] = [];
+  private disableUsername: boolean;
+  private disableEmail: boolean;
 
   private usernameValidity: string;
   private emailValidity: string;
 
   @Output() private mbrsChange: EventEmitter<Membre[]> = new EventEmitter();
 
-  constructor(public membreService: MembreManagerService) {
+  constructor(public membreService: MembreManagerService, public router: Router) {
   }
 
   ngOnInit() {
-    this.usernameValidity="form-group";
-    this.emailValidity="form-group";
+    this.usernameValidity = 'form-group';
+    this.emailValidity = 'form-group';
+    this.disableUsername = true;
+    this.disableEmail = true;
   }
 
-  public checkValidity(){
-    let validity;
-    //this.membreService.checkValidityUsername(this.username).subscribe(valid => validity = valid);
+  public checkValidityUsername(){
+    this.membreService.checkValidityUsername(this.username).subscribe(valid => {
+      if (valid !== true){
+        this.usernameValidity = 'form-group has-error has-feedback';
+        this.disableUsername = false;
+      }else{
+        this.usernameValidity = 'form-group';
+        this.disableUsername = true;
+      }
+    });
+  }
+
+  public checkValidityEmail(){
+    this.membreService.checkValidityEmail(this.email).subscribe(valid => {
+      if (valid !== true){
+        this.emailValidity = 'form-group has-error has-feedback';
+        this.disableEmail = false;
+      }else{
+        this.emailValidity = 'form-group';
+        this.disableEmail = true;
+      }
+    });
+  }
+
+  public getDisable(): boolean{
+    if (this.disableUsername && this.disableEmail){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   public createMembre() {
-    this.emailValidity = "form-group";
-    this.usernameValidity = "form-group";
+    this.emailValidity = 'form-group';
+    this.usernameValidity = 'form-group';
     const tmpJv = new Membre();
     tmpJv.username = this.username;
     tmpJv.password = this.password;
@@ -57,10 +88,10 @@ export class PageMembreComponent implements OnInit {
       tmpJv.adresse = this.adresse;
       this.membreService.createM(tmpJv).subscribe(mbr => tmpJv.id = Membre.fromJSON(mbr).id);
       this.effacerChamp();
+      this.router.navigate([""]);
   }
 
   public effacerChamp() {
-    alert("effacer");
     this.username = '';
     this.password = '';
     this.nom = '';

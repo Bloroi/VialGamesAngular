@@ -33,13 +33,14 @@ export class PageConnectionComponent implements OnInit {
         localStorage.setItem('username', this.username);
         localStorage.setItem('password', this.password);
         localStorage.setItem('type', token[0]);
-        switch (token[0]){
-          case '1': this.mcService.setMembre(); break;
-          case '2': this.mcService.setAdmin(); break;
-          case '3': this.mcService.setMagasinier(); break;
+        if (token[0] === '1') {
+          this.mcService.setMembre();
+        }else if (token[0] === '2') {
+          this.mcService.setAdmin();
+        }else if (token[0] === '3'){
+          this.mcService.setMagasinier();
         }
         this.router.navigate(['']);
-        window.location.reload();
       }
     });
   }

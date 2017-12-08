@@ -21,9 +21,13 @@ export class MembreManagerService {
     return this.http.get('http://localhost:56469/api/membre?username=' + username + '&password=' + password);
   }
 
-  /*public checkValidityUsername(username: string): Observable<number>{
-    return this.http.get('http://localhost:56469/api/membre?+type=0&username=' + username + '&email=' + email);
-  */
+  public checkValidityUsername(username: string): Observable<boolean> {
+    return this.http.get('http://localhost:56469/api/Membre?type=1&chaine=' + username);
+  }
+
+  public checkValidityEmail(email: string): Observable<boolean> {
+    return this.http.get('http://localhost:56469/api/membre?type=2&chaine=' + email);
+  }
 
   public createM(m: Membre): Observable<Membre>{
     return this.http.post('http://localhost:56469/api/membre', m.getCleanDataForSending());
