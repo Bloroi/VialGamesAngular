@@ -41,7 +41,6 @@ export class PagePayementComponent implements OnInit {
   }
 
   public payer() {
-    if(this.checkCardNum(this.cardNum)) {
       for (let jv of this.listeJv) {
         const tmpRf = new ReservationEnCours();
         let today = new Date();
@@ -85,49 +84,9 @@ export class PagePayementComponent implements OnInit {
         this.updateJeuxvideo(jv);
         this.router.navigate([""]);
       }
-    }else{
-      alert("num invalid");
-    }
   }
 
   public updateJeuxvideo(jv: Jeuxvideo){
     this.jvService.updateJv(jv).subscribe();
-  }
-
-  public getLastNum(){
-    let tmp1 = this.num % 10;
-    this.num = (this.num - tmp1) / 2;
-    return tmp1;
-  }
-
-  public checkCardNum(siret: number){
-    alert("checking");
-    let estValide;
-    this.num = siret;
-    // Donc le SIRET est un numérique à 14 chiffres
-    // Les 9 premiers chiffres sont ceux du SIREN (ou RCS), les 4 suivants
-    // correspondent au numéro d'établissement
-    // et enfin le dernier chiffre est une clef de LUHN.
-    let somme = 0;
-    let tmp;
-    for (let cpt = 0; cpt < siret.toString().length; cpt++) {
-      if ((cpt % 2) === 0) {
-        tmp = this.getLastNum();
-        tmp = tmp * 2;
-        if (tmp > 9) {
-          tmp = tmp - 9;
-        }
-      }else {
-        tmp = this.getLastNum()
-      }
-      this.sum = this.sum + tmp;
-      alert(this.sum);
-    }
-    if ((this.sum % 10) === 0) {
-      estValide = true; // Si la somme est un multiple de 10 alors le SIRET est valide
-    }else {
-      estValide = false;
-    }
-    return estValide;
   }
 }
