@@ -1,6 +1,8 @@
 import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {Membre} from '../membre';
 import {MembreManagerService} from '../membre-manager.service';
+import {MembreConnecteService} from '../membre-connecte.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-page-membres-admin',
@@ -11,12 +13,19 @@ export class PageMembresAdminComponent implements OnInit {
 
   private mbrs: Membre[] = [];
   private newInnerWidth = window.innerWidth;
+  private supprimerA : number;
 
   @Output() private mbrsChange: EventEmitter<Membre[]> = new EventEmitter();
 
-  constructor(public mService: MembreManagerService) { }
+  constructor(public mService: MembreManagerService,
+              public mcService: MembreConnecteService, public router: Router) { }
 
   ngOnInit() {
+    if (this.mcService.getType() == '2') {
+    }else {
+      this.router.navigate(['/']);
+    }
+
     this.mService.getAllM().subscribe(mbrs => this.mbrs = Membre.fromJSONs(mbrs));
   }
 

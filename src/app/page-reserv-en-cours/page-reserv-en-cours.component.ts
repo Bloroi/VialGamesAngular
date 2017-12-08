@@ -6,6 +6,7 @@ import {MembreConnecteService} from "../membre-connecte.service";
 import {Membre} from "../membre";
 import {ReservationFinieManagerService} from '../reservation-finie-manager.service';
 import {ReservationFinie} from '../reservation-finie';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-page-reserv-en-cours',
@@ -18,15 +19,23 @@ export class PageReservEnCoursComponent implements OnInit {
   private listeRf: ReservationFinie[] = [];
   private newInnerWidth = window.innerWidth;
 
-  constructor(public reService: ReservationEnCoursManagerService, public mcService: MembreConnecteService , public rfService: ReservationFinieManagerService) {}
+  constructor(public reService: ReservationEnCoursManagerService, public mcService: MembreConnecteService , public rfService: ReservationFinieManagerService,public router: Router) {}
 
   ngOnInit( ) {
+
+    if (this.mcService.getType() == '1') {
+    }else {
+      this.router.navigate(['/']);
+    }
+
     this.reService.getReservMembre( this.mcService.getMembre().id).subscribe(res => {
       this.listeRe = ReservationEnCours.fromJSONs(res);
     });
     this.rfService.getReservMembre( this.mcService.getMembre().id).subscribe(res => {
       this.listeRf = ReservationFinie.fromJSONs(res);
     });
+
+
   }
 
   @HostListener('window:resize', ['$event'])

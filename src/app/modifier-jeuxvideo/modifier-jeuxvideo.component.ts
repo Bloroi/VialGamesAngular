@@ -1,6 +1,8 @@
 import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {Jeuxvideo} from '../jeuxvideo';
 import {JeuxvideoManagerService} from '../jeuxvideo-manager.service';
+import {MembreConnecteService} from '../membre-connecte.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-modifier-jeuxvideo',
@@ -11,13 +13,21 @@ export class ModifierJeuxvideoComponent implements OnInit {
 
   private jvs: Jeuxvideo[] = [];
   private newInnerWidth = window.innerWidth;
+  private supprimerJv : number;
 
   @Output() private jvsChange: EventEmitter<Jeuxvideo[]> = new EventEmitter();
 
-  constructor(public jvService: JeuxvideoManagerService) { }
+  constructor(public jvService: JeuxvideoManagerService,public mcService: MembreConnecteService, public router: Router) { }
 
   ngOnInit() {
+
+    if (this.mcService.getType() == '2') {
+    }else {
+      this.router.navigate(['/']);
+    }
+
     this.jvService.currentList.subscribe(jvs => this.jvs = jvs);
+
   }
 
   @HostListener('window:resize', ['$event'])

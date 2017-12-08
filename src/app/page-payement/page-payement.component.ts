@@ -21,6 +21,9 @@ export class PagePayementComponent implements OnInit {
   private cardNum: number;
   private sum: number;
   private num: number;
+  private tmpPropri: string;
+  private tmpCVV: string;
+  private tmpCardNum: string;
 
   constructor(public rfService: ReservationEnCoursManagerService,
               public jvService: JeuxvideoManagerService,
@@ -31,8 +34,18 @@ export class PagePayementComponent implements OnInit {
   @Output() private rfsChange: EventEmitter<ReservationEnCours[]> = new EventEmitter();
 
   ngOnInit() {
+    if (this.mcService.getType() == '1') {
+    }else {
+      this.router.navigate(['/']);
+    }
+
+
     this.rfService.currentList.subscribe(reservations => this.listeRe = reservations);
     this.jvService.currentPanierList.subscribe(jeuxvideos => this.listeJv = jeuxvideos);
+
+    if (this.listeJv.length === 0) {
+      this.router.navigate(['/']);
+    }
   }
 
   public emitReservationFinie() {
@@ -82,6 +95,8 @@ export class PagePayementComponent implements OnInit {
         this.jvService.changePanierJv([]);
         jv.stock -= 1;
         this.updateJeuxvideo(jv);
+        alert("Votre commande a été validée avec succès ! Votre commande arrivera dans les plus brefs délais.");
+        this.refreshChamps();
         this.router.navigate([""]);
       }
   }
@@ -89,4 +104,10 @@ export class PagePayementComponent implements OnInit {
   public updateJeuxvideo(jv: Jeuxvideo){
     this.jvService.updateJv(jv).subscribe();
   }
-}
+
+  public refreshChamps()
+  {
+    this.tmpPropri="";
+    this.tmpCVV="";
+    this.tmpCardNum="";
+  }}

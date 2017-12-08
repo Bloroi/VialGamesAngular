@@ -23,10 +23,11 @@ export class MembreConnecteService {
    if (localStorage.getItem('type') === '1') {
      this.construireMembre();
    }else if(localStorage.getItem('type') === '2') {
+     this.construireAd();
+   }
+   else if(localStorage.getItem('type') === '3') {
      this.construireMag();
-   }else if(localStorage.getItem('type') === '3'){
-      this.construireAd();
-    }
+   }
   }
 
   public setMembre() {

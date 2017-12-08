@@ -1,6 +1,8 @@
 <hr>
 <h1>Modifier des Membres</h1>
 <hr>
+
+
 <div class="container">
 
   <ul class="event-list">
@@ -8,13 +10,7 @@
 
 
       <section id="contact">
-        <button style="float:right;" class="btn btn-danger" (click)="deleteMembre(i)">X</button><br/>
-        <div class="row">
-          <div class="section-content">
-            Id : {{m.id}}
 
-          </div>
-        </div>
         <div class="row">
           <div class="contact-section">
 
@@ -22,7 +18,7 @@
               <div class="col-md-6" >
 
                 <div class="form-group">
-                  <label>Username</label>
+                  <label>Login</label>
                   <input type="text" name ="username" class="form-control" [(ngModel)]="m.username"(blur)="updateMembre(m)" >
                 </div>
                 <div class="form-group">
@@ -41,6 +37,8 @@
                   <label>Email</label>
                   <input type="text" name ="email" class="form-control" [(ngModel)]="m.email"(blur)="updateMembre(m)" >
                 </div>
+              </div>
+              <div class="col-md-6" >
                 <div class="form-group">
                   <label>Téléphone</label>
                   <input type="text" name ="tel" class="form-control" [(ngModel)]="m.tel"(blur)="updateMembre(m)" >
@@ -51,12 +49,13 @@
                 </div>
                 <div class="form-group">
                   <label>Code Postal</label>
-                  <input type="number" name ="cp" class="form-control" [(ngModel)]="m.cp"(blur)="updateMembre(m)" >
+                  <input type="number" name ="cp" min="0" class="form-control" [(ngModel)]="m.cp"(blur)="updateMembre(m)" >
                 </div>
                 <div class="form-group">
                   <label>Adresse</label>
                   <input type="text" name ="adresse" class="form-control" [(ngModel)]="m.adresse"(blur)="updateMembre(m)" >
                 </div>
+                <button data-toggle="modal" (click)="supprimerA= i " data-target="#myModal" style="float:right;" class="btn btn-danger">Supprimer</button>
               </div>
             </form>
           </div>
@@ -67,4 +66,32 @@
     </li>
 
   </ul>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header rouge">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4><span class="glyphicon glyphicon-remove"></span>Supprimer le membre ?</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <button type="submit" (click)="deleteMembre(supprimerA)" class="btn btn-success btn-block" data-dismiss="modal">
+              <span class="glyphicon glyphicon-ok"></span>Supprimer le membre
+            </button>
+            <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal">
+              <span class="glyphicon glyphicon-remove"></span>Retour
+            </button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

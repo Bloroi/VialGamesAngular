@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Membre} from '../membre';
 import {MembreManagerService} from '../membre-manager.service';
 import {MembreConnecteService} from '../membre-connecte.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-modif-mdp-membre',
@@ -15,14 +16,20 @@ export class ModifMdpMembreComponent implements OnInit {
   private nouveaumdp: string;
   private nouveaumdp2: string;
 
-  constructor(public mService: MembreManagerService, public mcService: MembreConnecteService) { }
+  constructor(public mService: MembreManagerService, public mcService: MembreConnecteService, public router: Router) { }
 
   ngOnInit() {
+    if (this.mcService.getType() == '1') {
+    }else {
+      this.router.navigate(['/']);
+    }
+
     this.membre = this.mcService.getMembre();
+
   }
 
 
-  public updateAdmin(){
+  public updateMembre(){
     if (this.membre.password == this.vieuxmdp){
       if (this.nouveaumdp == this.nouveaumdp2){
         this.membre.password = this.nouveaumdp;

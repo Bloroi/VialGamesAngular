@@ -22,6 +22,11 @@ export class PageConnectionComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    if (this.mcService.getType() == '0') {
+    }else {
+      this.router.navigate(['/']);
+    }
+
   }
 
   public connecter() {

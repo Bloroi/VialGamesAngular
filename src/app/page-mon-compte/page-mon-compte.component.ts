@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MembreConnecteService} from "../membre-connecte.service";
 import {MembreManagerService} from "../membre-manager.service";
 import {Membre} from "../membre";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-page-mon-compte',
@@ -21,11 +22,16 @@ export class PageMonCompteComponent implements OnInit {
   private cp: number;
   private adresse: string;
 
-  constructor(public mcService: MembreConnecteService, public mService: MembreManagerService){
+  constructor(public mcService: MembreConnecteService, public mService: MembreManagerService, public router: Router){
     this.mcService.construireMembre();
   }
 
   ngOnInit(){
+    if (this.mcService.getType() == '1') {
+    }else {
+      this.router.navigate(['/']);
+    }
+
     this.id = this.mcService.getMembre().id;
     this.username = this.mcService.getMembre().username;
     this.password = this.mcService.getMembre().password;

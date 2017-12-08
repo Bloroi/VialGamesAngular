@@ -2,7 +2,7 @@
 <h1>Vos réservations en cours</h1>
 <hr>
 
-<div class="container"  style=" background-color:blanchedalmond">
+<div class="container" *ngIf="listeRe.length > 0"  style=" background-color:blanchedalmond">
 <table class="table table-hover" style="background-color:white;margin : 10px;">
   <thead>
     <tr>
@@ -31,11 +31,17 @@
 </table>
 </div>
 
+<div  *ngIf="listeRe.length == 0">
+
+  <span>Votre liste de réservations est vide.</span>
+
+</div>
+
 <hr>
 <h1>Vos réservations finies</h1>
 <hr>
 
-<div class="container"  style=" background-color:blanchedalmond">
+<div class="container" *ngIf="listeRf.length > 0"  style=" background-color:blanchedalmond">
   <table class="table table-hover" style="background-color:white;margin : 10px;">
     <thead>
     <tr>
@@ -62,4 +68,11 @@
     </tr>
     </tbody>
   </table>
+</div>
+
+
+<div *ngIf="listeRf.length == 0" >
+
+  <span>Votre liste de réservations est vide.</span>
+
 </div>

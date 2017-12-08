@@ -1,0 +1,38 @@
+<hr>
+<h1>Liste des réservations finies</h1>
+<hr>
+
+<div class="container"  *ngIf="listeRf.length > 0" style=" background-color:blanchedalmond">
+  <table class="table table-hover" style="background-color:white;margin : 10px;">
+    <thead>
+    <tr>
+      <th>Article</th>
+      <th *ngIf="newInnerWidth>767">Plateforme</th>
+      <th *ngIf="newInnerWidth>767">Date Res.</th>
+      <th>Date Livr. Prévue</th>
+      <th>Prix achat €</th>
+      <th>Pseudo</th>
+      <th>Etat livr.</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let reserv of listeRf; index as i;">
+
+
+      <td>{{reserv.jeuxvideo.nom}}</td>
+      <td *ngIf="newInnerWidth>767">{{reserv.jeuxvideo.types}}</td>
+      <td *ngIf="newInnerWidth>767">{{reserv.dateReservation}}</td>
+      <td>{{reserv.dateLivraison}}</td>
+      <td>{{reserv.prixAchat}}</td>
+      <td>{{reserv.membre.username}}</td>
+      <td>{{reserv.etat}}</td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="listeRf.length == 0">
+  <span>Il n'y a pas de réservations à afficher pour le moment.</span>
+</div>

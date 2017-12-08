@@ -3,7 +3,7 @@
 <hr>
 
 
-<div class="container">
+<div class="container" *ngIf="listeRe.length > 0">
 
   <ul class="event-list">
     <li *ngFor="let r of listeRe ; index as i;">
@@ -91,6 +91,9 @@
   </div>
 </div>
 
+<div *ngIf="listeRe.length == 0">
+  <span>Il n'y a pas de réservations à afficher pour le moment.</span>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal2" role="dialog">

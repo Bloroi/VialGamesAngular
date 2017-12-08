@@ -1,6 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Jeuxvideo} from '../jeuxvideo';
 import {JeuxvideoManagerService} from '../jeuxvideo-manager.service';
+import {Router} from '@angular/router';
+import {MembreConnecteService} from '../membre-connecte.service';
 
 @Component({
   selector: 'app-creer-jeuxvideo',
@@ -25,9 +27,15 @@ export class CreerJeuxvideoComponent implements OnInit {
 
   @Output() private jvsChange: EventEmitter<Jeuxvideo[]> = new EventEmitter();
 
-  constructor(public jvService: JeuxvideoManagerService) { }
+  constructor(public jvService: JeuxvideoManagerService,public mcService: MembreConnecteService,public router: Router) { }
 
   ngOnInit() {
+
+    if (this.mcService.getType() == '2') {
+    }else {
+      this.router.navigate(['/']);
+    }
+
     this.jvService
       .getAllJvs()
       .subscribe(jvs => {
@@ -36,7 +44,6 @@ export class CreerJeuxvideoComponent implements OnInit {
       });
 
     this.jvService.currentList.subscribe(listjvs => this.jvs = listjvs);
-
   }
 
   public emitJeuxvideos() {

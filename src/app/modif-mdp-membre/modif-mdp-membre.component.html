@@ -1,8 +1,5 @@
-<hr>
-<h1>Modifier le mot de passe</h1>
-<hr>
 
-<form #formulaire="ngForm" (submit)="updateAdmin()">
+<form #formulaire="ngForm" (submit)="updateMembre()">
   <div class="form-group">
     <label>Ancien mdp</label><br/>
     <input type="text" name="ancienmdp" [(ngModel)]="vieuxmdp" placeholder="Ancien mot de passe" required>

@@ -3,6 +3,8 @@ import {ReservationEnCours} from '../reservationEnCours';
 import {ReservationFinie} from '../reservation-finie';
 import {ReservationFinieManagerService} from '../reservation-finie-manager.service';
 import {ReservationEnCoursManagerService} from '../reservation-en-cours-manager.service';
+import {MembreConnecteService} from '../membre-connecte.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-modifier-mag-reservationencours',
@@ -16,12 +18,19 @@ export class ModifierMagReservationencoursComponent implements OnInit {
   private supprimerR: number;
   private rsF: ReservationFinie;
 
-  constructor(public reService: ReservationEnCoursManagerService , public rfService: ReservationFinieManagerService) { }
+  constructor(public reService: ReservationEnCoursManagerService , public rfService: ReservationFinieManagerService, public mcService: MembreConnecteService, public router: Router) { }
 
   ngOnInit() {
+    if (this.mcService.getType() == '3' || this.mcService.getType() == '2') {
+    }else {
+      this.router.navigate(['/']);
+    }
+
     this.reService.getReservMembre(-1).subscribe(res => {
       this.listeRe = ReservationEnCours.fromJSONs(res);
     });
+
+
   }
 
   public GestionRes(index: number, etat: string)

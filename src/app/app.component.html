@@ -33,9 +33,9 @@
       <li class="active"><a [routerLink]="['/']">Accueil</a></li>
       <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/jvpage']">Gérer les jeux vidéos</a></li>
       <li *ngIf="this.mcService.getType()=='3' || this.mcService.getType()=='2' "><a [routerLink]="['/reservationencoursMag']">Gérer les réservations</a></li>
+      <li *ngIf="this.mcService.getType()=='3' || this.mcService.getType()=='2' "><a [routerLink]="['/reservationsfiniesMag']">Historique</a></li>
       <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/magpage']">Gérer les magasiniers</a></li>
       <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/membrespage']">Gérer les membres</a></li>
-      <li *ngIf="this.mcService.getType()=='2'"><a [routerLink]="['/adminpage']">Config Compte Admin</a></li>
       <li *ngIf="this.mcService.getType()=='1'"><a [routerLink]="['/reservationencourspage']">Mes Réservations</a></li>
 
 
@@ -45,7 +45,7 @@
       <button *ngIf="this.mcService.getType()=='1'" [routerLink]="['/moncomptepage']" class="btn btn-success navbar-btn">
         {{this.mcService.getMembre().username}}
       </button>
-      <button *ngIf="this.mcService.getType()=='2'" class="btn btn-success navbar-btn" disabled>
+      <button *ngIf="this.mcService.getType()=='2'" [routerLink]="['/adminpage']" class="btn btn-success navbar-btn">
         {{this.mcService.getAd().username}}
       </button>
       <button *ngIf="this.mcService.getType()=='3'" class="btn btn-success navbar-btn" disabled>

@@ -1,47 +1,84 @@
-<h1>Créer un Membre</h1>
+<hr>
+<div *ngIf="this.mcService.getType()=='2'">
+  <h1>Créer un Membre</h1>
+</div>
+<div *ngIf="this.mcService.getType()=='0'">
+  <h1>S'inscrire</h1>
+</div>
+<hr>
 
-<form #formulaire="ngForm" (submit)="createMembre()">
+<div class="container">
 
-  <div class="row" style="margin-bottom:15px;">
-    <div class="contact-section" class="col-xs-3">
-      <div>
-        <div class={{getUsernameValidity()}}>
-          <label>Username</label>
-          <input type="text" name ="username" class="form-control" [(ngModel)]="username" (blur)="checkValidityUsername()"required>
-        </div>
+  <ul class="event-list">
+    <li>
+      <form #formulaire="ngForm" (submit)="createMembre()">
 
-        <label>Password</label>
-        <input type="password" name ="password" class="form-control" [(ngModel)]="password" required>
+        <section id="contact">
 
-        <label>Nom</label>
-        <input type="text" name ="nom" class="form-control" [(ngModel)]="nom" required>
+          <div class="row" style="margin-bottom:15px;">
+            <div class="contact-section">
 
-        <label>Prénom</label>
-        <input type="text" name ="prenom" class="form-control" [(ngModel)]="prenom" required>
 
-        <label>Date de naissance</label>
-        <input type="date" name ="dateDeNaissance" class="form-control" [(ngModel)]="dateDeNaissance" required>
-      </div>
-      <div>
-        <div class={{getEmailValidity()}}>
-          <label>Email</label>
-          <input type="text" name ="email" class="form-control" [(ngModel)]="email" (blur)="checkValidityEmail()" required>
-        </div>
+              <div class="col-md-6" >
 
-        <label>Téléphone</label>
-        <input type="text" name ="tel" class="form-control" [(ngModel)]="tel" required>
+                <div class={{getUsernameValidity()}}>
+                  <div class="form-group">
+                  <label>Login</label>
+                  <input type="text" name ="username" class="form-control" [(ngModel)]="username" placeholder="Taper le login" (blur)="checkValidityUsername()" required>
+                  </div>
+                </div>
 
-        <label>Localité</label>
-        <input type="text" name ="localite" class="form-control" [(ngModel)]="localite" required>
+                <div class="form-group">
+                <label>Password</label>
+                <input type="password" name ="password" class="form-control" [(ngModel)]="password" placeholder="Taper le mot de passe" required>
+                </div>
+                <div class="form-group">
+                <label>Nom</label>
+                <input type="text" name ="nom" class="form-control" [(ngModel)]="nom" placeholder="Taper le nom" required>
+                </div>
+                <div class="form-group">
+                <label>Prénom</label>
+                <input type="text" name ="prenom" class="form-control" [(ngModel)]="prenom" placeholder="Taper le prénom" required>
+                </div>
+                <div class="form-group">
+                <label>Date de naissance</label>
+                <input type="date" name ="dateDeNaissance" class="form-control" [(ngModel)]="dateDeNaissance" placeholder="Taper la date de naissance" required>
+                </div>
+              </div>
+                <div class="col-md-6">
+                <div class={{getEmailValidity()}}>
+                  <div class="form-group">
+                  <label>Email</label>
+                  <input type="text" name ="email" class="form-control" [(ngModel)]="email" (blur)="checkValidityEmail()" placeholder="Taper l'email" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                <label>Téléphone</label>
+                <input type="text" name ="tel" class="form-control" [(ngModel)]="tel" placeholder="Taper le téléphone" required>
+                </div>
+                <div class="form-group">
+                <label>Adresse</label>
+                <input type="text" name ="adresse" class="form-control" [(ngModel)]="adresse" placeholder="Taper l'adresse" required>
+                </div>
+                  <div class="form-group">
+                    <label>Localité</label>
+                    <input type="text" name ="localite" class="form-control" [(ngModel)]="localite" placeholder="Taper la localité" required>
+                  </div>
+                <div class="form-group">
+                <label>Code postal</label>
+                <input type="number" name ="cp" min="0" class="form-control" [(ngModel)]="cp" placeholder="Taper le code postal" required>
+                </div>
+              </div>
 
-        <label>Code postal</label>
-        <input type="number" name ="cp" class="form-control" [(ngModel)]="cp" required>
+            </div>
+          </div>
 
-        <label>Adresse</label>
-        <input type="text" name ="adresse" class="form-control" [(ngModel)]="adresse" required>
-      </div>
-    </div>
-  </div>
-  <input type="submit" class="btn btn-default" value="S'inscrire" [disabled]="(!formulaire.form.valid) || (getDisable()==false)">
+          <input *ngIf="this.mcService.getType()=='2'" type="submit" class="btn btn-default" value="Inscrire l'utilisateur !" [disabled]="!formulaire.form.valid">
+          <input *ngIf="this.mcService.getType()=='0'" type="submit" class="btn btn-default" value="S'inscrire" [disabled]="!formulaire.form.valid">
+        </section>
 
-</form>
+      </form>
+
+    </li>
+  </ul>
+</div>

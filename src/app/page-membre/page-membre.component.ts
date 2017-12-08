@@ -3,6 +3,7 @@ import {MembreManagerService} from '../membre-manager.service';
 import {Membre} from '../membre';
 import {FormControl} from '@angular/forms';
 import {Router} from "@angular/router";
+import {MembreConnecteService} from '../membre-connecte.service';
 
 @Component({
   selector: 'app-page-membre',
@@ -30,38 +31,49 @@ export class PageMembreComponent implements OnInit {
 
   @Output() private mbrsChange: EventEmitter<Membre[]> = new EventEmitter();
 
-  constructor(public membreService: MembreManagerService, public router: Router) {
+  constructor(public membreService: MembreManagerService, public mcService: MembreConnecteService, public router: Router) {
   }
 
   ngOnInit() {
+
+    if (this.mcService.getType() == '2' || this.mcService.getType() == '0') {
+    }else {
+      this.router.navigate(['/']);
+    }
+
     this.usernameValidity = 'form-group';
     this.emailValidity = 'form-group';
     this.disableUsername = true;
     this.disableEmail = true;
+
   }
 
   public checkValidityUsername(){
-    this.membreService.checkValidityUsername(this.username).subscribe(valid => {
-      if (valid !== true){
-        this.usernameValidity = 'form-group has-error has-feedback';
-        this.disableUsername = false;
-      }else{
-        this.usernameValidity = 'form-group';
-        this.disableUsername = true;
-      }
-    });
+    if(this.username !== '') {
+      this.membreService.checkValidityUsername(this.username).subscribe(valid => {
+        if (valid !== true) {
+          this.usernameValidity = 'form-group has-error has-feedback';
+          this.disableUsername = false;
+        } else {
+          this.usernameValidity = 'form-group';
+          this.disableUsername = true;
+        }
+      });
+    }
   }
 
   public checkValidityEmail(){
-    this.membreService.checkValidityEmail(this.email).subscribe(valid => {
-      if (valid !== true){
-        this.emailValidity = 'form-group has-error has-feedback';
-        this.disableEmail = false;
-      }else{
-        this.emailValidity = 'form-group';
-        this.disableEmail = true;
-      }
-    });
+    if(this.email !== '') {
+      this.membreService.checkValidityEmail(this.email).subscribe(valid => {
+        if (valid !== true) {
+          this.emailValidity = 'form-group has-error has-feedback';
+          this.disableEmail = false;
+        } else {
+          this.emailValidity = 'form-group';
+          this.disableEmail = true;
+        }
+      });
+    }
   }
 
   public getDisable(): boolean{
@@ -88,7 +100,16 @@ export class PageMembreComponent implements OnInit {
       tmpJv.adresse = this.adresse;
       this.membreService.createM(tmpJv).subscribe(mbr => tmpJv.id = Membre.fromJSON(mbr).id);
       this.effacerChamp();
-      this.router.navigate([""]);
+
+
+
+      if(this.mcService.getType()=='2') {
+        window.location.reload();
+      }
+      else{
+        alert("Vous êtes désormais inscris ! A présent, veuillez vous connecter !");
+        this.router.navigate(['/']);
+      }
   }
 
   public effacerChamp() {

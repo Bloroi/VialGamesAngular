@@ -1,6 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Magasinier} from '../magasinier';
 import {MagasinierManagerService} from '../magasinier-manager.service';
+import {MembreConnecteService} from '../membre-connecte.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-creer-magasinier',
@@ -17,9 +19,15 @@ export class CreerMagasinierComponent implements OnInit {
 
   @Output() private magsChange: EventEmitter<Magasinier[]> = new EventEmitter();
 
-  constructor(public magService: MagasinierManagerService) { }
+  constructor(public magService: MagasinierManagerService,public mcService: MembreConnecteService, public router: Router) { }
 
   ngOnInit() {
+
+    if (this.mcService.getType() == '2') {
+    }else {
+      this.router.navigate(['/']);
+    }
+
     this.magService
       .getAllM()
       .subscribe(mags => {
