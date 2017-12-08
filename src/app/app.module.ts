@@ -34,6 +34,7 @@ import { ModifierMagReservationencoursComponent } from './modifier-mag-reservati
 import {ReservationFinieManagerService} from './reservation-finie-manager.service';
 import { PageMonCompteComponent } from './page-mon-compte/page-mon-compte.component';
 import { HighlightDirective } from './highlight.directive';
+import { PageMembresAdminComponent } from './page-membres-admin/page-membres-admin.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { HighlightDirective } from './highlight.directive';
     FilterNomJvPipe,
     ModifierMagReservationencoursComponent,
     PageMonCompteComponent,
-    HighlightDirective
+    HighlightDirective,
+    PageMembresAdminComponent
   ],
   imports: [
     BrowserModule,

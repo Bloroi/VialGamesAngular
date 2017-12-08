@@ -1,0 +1,70 @@
+<hr>
+<h1>Modifier des Membres</h1>
+<hr>
+<div class="container">
+
+  <ul class="event-list">
+    <li *ngFor="let m of mbrs ; index as i;">
+
+
+      <section id="contact">
+        <button style="float:right;" class="btn btn-danger" (click)="deleteMembre(i)">X</button><br/>
+        <div class="row">
+          <div class="section-content">
+            Id : {{m.id}}
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="contact-section">
+
+            <form>
+              <div class="col-md-6" >
+
+                <div class="form-group">
+                  <label>Username</label>
+                  <input type="text" name ="username" class="form-control" [(ngModel)]="m.username"(blur)="updateMembre(m)" >
+                </div>
+                <div class="form-group">
+                  <label>Nom</label>
+                  <input type="text" name ="nom" class="form-control" [(ngModel)]="m.nom"(blur)="updateMembre(m)">
+                </div>
+                <div class="form-group">
+                  <label>Prénom</label>
+                  <input type="text" name ="prenom" class="form-control" [(ngModel)]="m.prenom"(blur)="updateMembre(m)" >
+                </div>
+                <div class="form-group">
+                  <label>Date De Naissance</label>
+                  <input type="text" name ="dateDeNaissance" class="form-control" [(ngModel)]="m.dateDeNaissance"(blur)="updateMembre(m)" >
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="text" name ="email" class="form-control" [(ngModel)]="m.email"(blur)="updateMembre(m)" >
+                </div>
+                <div class="form-group">
+                  <label>Téléphone</label>
+                  <input type="text" name ="tel" class="form-control" [(ngModel)]="m.tel"(blur)="updateMembre(m)" >
+                </div>
+                <div class="form-group">
+                  <label>Localité</label>
+                  <input type="text" name ="localite" class="form-control" [(ngModel)]="m.localite"(blur)="updateMembre(m)" >
+                </div>
+                <div class="form-group">
+                  <label>Code Postal</label>
+                  <input type="number" name ="cp" class="form-control" [(ngModel)]="m.cp"(blur)="updateMembre(m)" >
+                </div>
+                <div class="form-group">
+                  <label>Adresse</label>
+                  <input type="text" name ="adresse" class="form-control" [(ngModel)]="m.adresse"(blur)="updateMembre(m)" >
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </section>
+
+    </li>
+
+  </ul>
+</div>

@@ -13,6 +13,10 @@ export class AdministrateurManagerService {
     return this.http.get("http://localhost:56469/api/administrateur");
   }
 
+  public get(username: string, password: string): Observable<Administrateur>{
+    return this.http.get('http://localhost:56469/api/administrateur?username=' + username + '&password=' + password);
+  }
+
   public getAdmin(id : number): Observable<Administrateur>{
     return this.http.get("http://localhost:56469/api/administrateur/"+id);
   }

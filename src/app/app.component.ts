@@ -19,6 +19,8 @@ export class AppComponent {
     localStorage.setItem("username", "");
     localStorage.setItem("password", "");
     this.mcService.delMembre();
+    this.mcService.delMag();
+    this.mcService.delAd();
     this.router.navigate([""]);
   }
 }

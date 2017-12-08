@@ -17,6 +17,10 @@ export class MagasinierManagerService {
     return this.http.get("http://localhost:56469/api/magasinier");
   }
 
+  public get(username: string, password: string): Observable<Magasinier>{
+    return this.http.get('http://localhost:56469/api/magasinier?username=' + username + '&password=' + password);
+  }
+
   public createM(m : Magasinier) : Observable<Magasinier>{
     return this.http.post("http://localhost:56469/api/magasinier", m.getCleanDataForSending());
   }

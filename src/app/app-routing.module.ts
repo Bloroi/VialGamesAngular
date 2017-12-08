@@ -11,6 +11,7 @@ import {PageReservEnCoursComponent} from "./page-reserv-en-cours/page-reserv-en-
 import {PageConnectionComponent} from "./page-connection/page-connection.component";
 import {ModifierMagReservationencoursComponent} from './modifier-mag-reservationencours/modifier-mag-reservationencours.component';
 import {PageMonCompteComponent} from "./page-mon-compte/page-mon-compte.component";
+import {PageMembresAdminComponent} from "./page-membres-admin/page-membres-admin.component";
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'reservationencourspage', component: PageReservEnCoursComponent},
   {path: 'connectionpage', component: PageConnectionComponent},
   {path: 'reservationencoursMag', component: ModifierMagReservationencoursComponent},
-  {path: 'moncomptepage', component: PageMonCompteComponent}
+  {path: 'moncomptepage', component: PageMonCompteComponent},
+  {path: 'membrespage', component:PageMembresAdminComponent}
 ];
 
 @NgModule({

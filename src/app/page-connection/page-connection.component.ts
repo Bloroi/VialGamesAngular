@@ -30,6 +30,8 @@ export class PageConnectionComponent implements OnInit {
         alert('Username et Mot de passe invalide.');
       }else {
         localStorage.setItem('token', token[1]);
+        localStorage.setItem('username', this.username);
+        localStorage.setItem('password', this.password);
         localStorage.setItem('type', token[0]);
         switch (token[0]){
           case '1': this.mcService.setMembre(); break;
