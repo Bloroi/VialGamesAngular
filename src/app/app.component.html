@@ -53,6 +53,7 @@
       <button *ngIf="this.mcService.getType()!='0'" (click)="deconnecter()" class="btn btn-danger navbar-btn">
         Déconnexion
       </button>
+      <button *ngIf="this.mcService.getType()=='0'" [routerLink]="['/membrepage']" class="btn btn-info navbar-btn">Inscription</button>
       <button *ngIf="this.mcService.getType()=='0'" [routerLink]="['/connectionpage']" class="btn btn-success navbar-btn">
         Connexion
       </button>

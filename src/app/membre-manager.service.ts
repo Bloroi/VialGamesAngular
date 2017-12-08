@@ -21,9 +21,9 @@ export class MembreManagerService {
     return this.http.get('http://localhost:56469/api/membre?username=' + username + '&password=' + password);
   }
 
-  public checkValidity(username: string, email: string): Observable<number>{
+  /*public checkValidityUsername(username: string): Observable<number>{
     return this.http.get('http://localhost:56469/api/membre?+type=0&username=' + username + '&email=' + email);
-  }
+  */
 
   public createM(m: Membre): Observable<Membre>{
     return this.http.post('http://localhost:56469/api/membre', m.getCleanDataForSending());

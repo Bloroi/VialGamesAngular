@@ -2,7 +2,6 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MembreManagerService} from '../membre-manager.service';
 import {Membre} from '../membre';
 import {FormControl} from "@angular/forms";
-import 'rxjs';
 
 @Component({
   selector: 'app-page-membre',
@@ -30,33 +29,24 @@ export class PageMembreComponent implements OnInit {
   @Output() private mbrsChange: EventEmitter<Membre[]> = new EventEmitter();
 
   constructor(public membreService: MembreManagerService) {
+  }
+
+  ngOnInit() {
     this.usernameValidity="form-group";
     this.emailValidity="form-group";
   }
 
-  ngOnInit() {
-    this.membreService
-      .getAllM()
-      .subscribe(mbrs => {
-        this.mbrs = Membre.fromJSONs(mbrs);
-        this.emitMembre();
-      });
-  }
-
-  public emitMembre() {
-    this.mbrsChange.next(this.mbrs);
-    this.membreService.changeListeM(this.mbrs);
+  public checkValidity(){
+    let validity;
+    //this.membreService.checkValidityUsername(this.username).subscribe(valid => validity = valid);
   }
 
   public createMembre() {
-    let validity;
-    this.membreService.checkValidity(this.username, this.email).subscribe(valid => validity = valid);
-    if(validity === 0) {
-      this.emailValidity = "form-group";
-      this.usernameValidity = "form-group";
-      const tmpJv = new Membre();
-      tmpJv.username = this.username;
-      tmpJv.password = this.password;
+    this.emailValidity = "form-group";
+    this.usernameValidity = "form-group";
+    const tmpJv = new Membre();
+    tmpJv.username = this.username;
+    tmpJv.password = this.password;
       tmpJv.nom = this.nom;
       tmpJv.prenom = this.prenom;
       tmpJv.dateDeNaissance = this.dateDeNaissance;
@@ -67,17 +57,6 @@ export class PageMembreComponent implements OnInit {
       tmpJv.adresse = this.adresse;
       this.membreService.createM(tmpJv).subscribe(mbr => tmpJv.id = Membre.fromJSON(mbr).id);
       this.effacerChamp();
-    }else if(validity === 1){
-      this.usernameValidity = "form-group has-error";
-      this.emailValidity = "form-group";
-    }else if(validity === 2){
-      this.emailValidity = "form-group has-error";
-      this.usernameValidity = "form-group";
-    }else if(validity === 3){
-      this.usernameValidity = "form-group has-error";
-      this.emailValidity = "form-group has-error";
-    }
-    alert("cc");
   }
 
   public effacerChamp() {
